@@ -5,11 +5,11 @@ using UnityEngine;
 public class NormalBird : Bird
 {
     private float time = 0f;
-    [SerializeField] Team team = Team.right;
     [SerializeField] private float power;
-    private void OnEnable()
+    
+    private void Update()
     {
-        if(team == Team.right)
+        if (team == Team.right)
         {
             dir = Vector2.left;
         }
@@ -17,17 +17,13 @@ public class NormalBird : Bird
         {
             dir = Vector2.right;
         }
-    }
+        if (canMove)
+            IMove(dir, speed);
 
-    private void Update()
-    {
-        if(canMove)
-            IMove(dir,speed);
-
-        if(!canMove)
+        if (!canMove)
         {
             time += Time.deltaTime;
-            if(time >= 2f)
+            if (time >= 2f)
             {
                 time = 0f;
                 canMove = true;
@@ -37,15 +33,18 @@ public class NormalBird : Bird
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.CompareTag("Bird") && team != other.GetComponent<NormalBird>().team)
+        if (other.CompareTag("Bird") && team != other.GetComponent<NormalBird>().team)
         {
             IFight(other.GetComponent<Bird>().birdSize);
         }
 
-        if(other.CompareTag("Window"))
+        if (other.CompareTag("Window"))
         {
-            other?.GetComponent<Window>().Damage(power);
-            PoolManager.Instance.Push(this.gameObject);
+            if (other.GetComponent<Window>().team != team)
+            {
+                other.GetComponent<Window>().Damage(power);
+                PoolManager.Instance.Push(this.gameObject);
+            }
         }
     }
 }
