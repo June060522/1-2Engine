@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class BattleTime : MonoBehaviour
 {
@@ -17,5 +18,10 @@ public class BattleTime : MonoBehaviour
     {
         playTime -= Time.deltaTime;
         timeTxt.text = $"남은 시간 : {Mathf.Round(playTime)}초";
+
+        if(playTime <= 0)
+        {
+            SceneManager.LoadScene("EndScene");
+        }
     }
 }
