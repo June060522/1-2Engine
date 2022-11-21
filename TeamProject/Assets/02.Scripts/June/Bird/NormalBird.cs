@@ -2,15 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum Team
-{
-    right = 1,
-    left = 2
-}
 public class NormalBird : Bird
 {
     private float time = 0f;
     [SerializeField] Team team = Team.right;
+    [SerializeField] private float power;
     private void OnEnable()
     {
         if(team == Team.right)
@@ -46,9 +42,10 @@ public class NormalBird : Bird
             IFight(other.GetComponent<Bird>().birdSize);
         }
 
-        if(other.CompareTag("Door"))
+        if(other.CompareTag("Window"))
         {
-            throw new System.NotImplementedException();
+            other?.GetComponent<Window>().Damage(power);
+            PoolManager.Instance.Push(this.gameObject);
         }
     }
 }
