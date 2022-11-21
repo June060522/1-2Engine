@@ -6,6 +6,11 @@ public class LPlayer : PlayerManager, ISummon
 {
     private int nowIndex = 1;
     private int spawnIndex = 0;
+
+    private void Start()
+    {
+        Hp = 30f;
+    }
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.W))
