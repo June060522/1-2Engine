@@ -8,14 +8,15 @@ public enum state
     alive = 1,
     broken = 2
 }
-public class Window : Singleton<Window>
+public class Window : MonoBehaviour
 {
+    public Team team = Team.right;
     public float Hp;
 
     public void Damage(float damage)
     {
         StartCoroutine(OnDamage(damage));
-        if(damage <= 0)
+        if(Hp <= 0)
         {
             Destroy(gameObject);
         }
