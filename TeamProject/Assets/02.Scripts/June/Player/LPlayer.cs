@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LPlayer : PlayerManager, ISummon
+public class LPlayer : PlayerManager
 {
     private int nowIndex = 1;
     private int spawnIndex = 0;
