@@ -14,7 +14,9 @@ public class PlayerManager : MonoBehaviour, ISummon
     [SerializeField] protected GameObject[] birds;
 
     private float hp;
-    public float Hp { get => hp; set => value = hp; }
+    private float birdFood;
+    public float Hp { get => hp; set => hp = value; }
+    public float BirdFood { get => birdFood; set => birdFood = value;}
 
     protected void Awake()
     {

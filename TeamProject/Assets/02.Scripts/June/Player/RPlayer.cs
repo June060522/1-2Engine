@@ -10,6 +10,7 @@ public class RPlayer : PlayerManager
     private void Start()
     {
         Hp = 30f;
+        BirdFood = 50;
     }
     
     void Update()
