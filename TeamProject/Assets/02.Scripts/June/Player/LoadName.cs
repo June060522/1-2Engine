@@ -15,11 +15,17 @@ public class LoadName : MonoBehaviour
     {
         if (playerName == PlayerName.Lplayer)
         {
-            nameTxt.text = PlayerPrefs.GetString("LPlayerName");
+            if(PlayerPrefs.GetString("RPlayerName") == "")
+                nameTxt.text = "Player1";
+            else
+                nameTxt.text = "Player1 : "+ PlayerPrefs.GetString("LPlayerName");
         }
         else if (playerName == PlayerName.Rplayer)
         {
-            nameTxt.text = PlayerPrefs.GetString("RPlayerName");
+            if(PlayerPrefs.GetString("RPlayerName") == "")
+                nameTxt.text = "Player2";
+            else
+                nameTxt.text = "Player2" + PlayerPrefs.GetString("RPlayerName");
         }
     }
 }

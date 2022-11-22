@@ -17,15 +17,17 @@ public class SavePlayerName : MonoBehaviour
     {
         pName = GetComponent<TextMeshProUGUI>();
     }
-    void Update()
+    private void Update()
     {
         if(playerName == PlayerName.Lplayer)
         {
-            PlayerPrefs.SetString("LPlayerName",pName.text);
+            if(pName.text.Length <= 8)
+                PlayerPrefs.SetString("LPlayerName",pName.text);
         }
         else if(playerName == PlayerName.Rplayer)
         {
-            PlayerPrefs.SetString("RPlayerName",pName.text);
+            if(pName.text.Length <= 8)
+                PlayerPrefs.SetString("RPlayerName",pName.text);
         }
     }
 }
