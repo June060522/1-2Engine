@@ -7,8 +7,12 @@ public class PlayerManager : MonoBehaviour, ISummon
 {
     public void Summon(Team team, GameObject bird, Vector2 pos)
     {
-        bird = PoolManager.Instance.Pop(bird, pos, Quaternion.identity);
-        bird.GetComponent<Bird>().team = team;
+        if(BirdFood >= bird.GetComponent<Bird>().bridFood)
+        {
+            BirdFood -= bird.GetComponent<Bird>().bridFood;
+            bird = PoolManager.Instance.Pop(bird, pos, Quaternion.identity);
+            bird.GetComponent<Bird>().team = team;
+        }
     }
     [SerializeField] protected GameObject[] window;
     [SerializeField] protected GameObject[] birds;

@@ -8,6 +8,7 @@ public class Bird : MonoBehaviour, IBird
     protected bool canMove = true;
     public BirdType birdSize;
     [SerializeField]protected float speed = 1f;
+    public float bridFood = 1f;
     public Team team = Team.right;
 
     public void IFight(BirdType birdType)
