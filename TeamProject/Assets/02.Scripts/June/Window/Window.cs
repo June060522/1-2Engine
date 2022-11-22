@@ -18,7 +18,7 @@ public class Window : MonoBehaviour
         StartCoroutine(OnDamage(damage));
         if(Hp <= 0)
         {
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         }
     }
 
