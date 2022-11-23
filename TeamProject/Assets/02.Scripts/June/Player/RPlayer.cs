@@ -20,14 +20,14 @@ public class RPlayer : PlayerManager
             nowIndex++;
             if (nowIndex > window.Length - 1)
                 nowIndex = 0;
-            transform.position = new Vector2(transform.position.x, window[nowIndex].transform.position.y);
+            transform.position = new Vector2(transform.position.x, window[nowIndex].transform.position.y + 0.7f);
         }
         if (Input.GetKeyDown(KeyCode.DownArrow))
         {
             nowIndex--;
             if (nowIndex < 0)
                 nowIndex = window.Length - 1;
-            transform.position = new Vector2(transform.position.x, window[nowIndex].transform.position.y);
+            transform.position = new Vector2(transform.position.x, window[nowIndex].transform.position.y + 0.7f);
         }
         if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
@@ -45,7 +45,7 @@ public class RPlayer : PlayerManager
 
         if (Input.GetKeyDown(KeyCode.RightShift))
         {
-            Summon(Team.right, birds[spawnIndex], new Vector2(transform.position.x - 1.5f, transform.position.y));
+            Summon(Team.right, birds[spawnIndex], new Vector2(transform.position.x, transform.position.y - 0.7f));
         }
     }
 }

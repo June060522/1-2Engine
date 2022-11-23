@@ -19,14 +19,14 @@ public class LPlayer : PlayerManager
             nowIndex++;
             if (nowIndex > window.Length - 1)
                 nowIndex = 0;
-            transform.position = new Vector2(transform.position.x, window[nowIndex].transform.position.y);
+            transform.position = new Vector2(transform.position.x, window[nowIndex].transform.position.y + 0.7f);
         }
         if (Input.GetKeyDown(KeyCode.S))
         {
             nowIndex--;
             if (nowIndex < 0)
                 nowIndex = window.Length - 1;
-            transform.position = new Vector2(transform.position.x, window[nowIndex].transform.position.y);
+            transform.position = new Vector2(transform.position.x, window[nowIndex].transform.position.y + 0.7f);
         }
         if (Input.GetKeyDown(KeyCode.A))
         {
@@ -43,7 +43,7 @@ public class LPlayer : PlayerManager
         }
         if(Input.GetKeyDown(KeyCode.Space))
         {
-            Summon(Team.left,birds[spawnIndex],new Vector2(transform.position.x + 1.5f,transform.position.y));
+            Summon(Team.left,birds[spawnIndex],new Vector2(transform.position.x,transform.position.y - 0.7f));
         }
     }
 }
