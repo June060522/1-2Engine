@@ -8,6 +8,8 @@ public class BattleTime : MonoBehaviour
 {
     [SerializeField]TextMeshProUGUI timeTxt;
     [SerializeField]float playTime = 300f;
+    [SerializeField]LPlayer lPlayer;
+    [SerializeField]RPlayer rPlayer;
 
     private void Awake()
     {
@@ -16,7 +18,10 @@ public class BattleTime : MonoBehaviour
 
     void Update()
     {
-        playTime -= Time.deltaTime;
+        if(lPlayer.Hp > 0 && rPlayer.Hp > 0)
+        {
+            playTime -= Time.deltaTime;
+        }
         timeTxt.text = $"남은 시간 : {Mathf.Round(playTime)}초";
 
         if(playTime <= 0)
