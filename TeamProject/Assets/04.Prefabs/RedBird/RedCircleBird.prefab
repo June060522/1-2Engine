@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1954544327}
   - component: {fileID: 1954544328}
   m_Layer: 0
-  m_Name: SNormalBird
+  m_Name: RedCircleBird
   m_TagString: Bird
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 3922882441395642639}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -75,8 +75,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_SortingOrder: 101
+  m_Sprite: {fileID: 765240584191287021, guid: 76bc3bf21b5e15b42bb9e34982fcfcc6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -101,7 +101,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   birdSize: 2
   speed: 1
+  bridFood: 1
   team: 1
+  power: 0
 --- !u!61 &1954544327
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -119,7 +121,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 8, y: 6.26}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
