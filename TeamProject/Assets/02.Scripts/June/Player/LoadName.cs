@@ -16,16 +16,16 @@ public class LoadName : MonoBehaviour
         if (playerName == PlayerName.Lplayer)
         {
             if(PlayerPrefs.GetString("RPlayerName") == "")
-                nameTxt.text = "Player1";
+                nameTxt.text = "Player1 : none";
             else
                 nameTxt.text = "Player1 : "+ PlayerPrefs.GetString("LPlayerName");
         }
         else if (playerName == PlayerName.Rplayer)
         {
             if(PlayerPrefs.GetString("RPlayerName") == "")
-                nameTxt.text = "Player2";
+                nameTxt.text = "Player2 : none";
             else
-                nameTxt.text = "Player2" + PlayerPrefs.GetString("RPlayerName");
+                nameTxt.text = "Player2 : " + PlayerPrefs.GetString("RPlayerName");
         }
     }
 }

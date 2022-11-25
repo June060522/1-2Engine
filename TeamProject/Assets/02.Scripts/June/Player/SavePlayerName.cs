@@ -17,6 +17,14 @@ public class SavePlayerName : MonoBehaviour
     {
         pName = GetComponent<TextMeshProUGUI>();
     }
+
+    private void OnEnable()
+    {
+        if(playerName == PlayerName.Lplayer)
+            pName.text = PlayerPrefs.GetString("LPlayerName");
+        else if(playerName == PlayerName.Rplayer)
+            pName.text = PlayerPrefs.GetString("RPlayerName");
+    }
     private void Update()
     {
         if(playerName == PlayerName.Lplayer)

@@ -6,19 +6,16 @@ using UnityEngine.SceneManagement;
 
 public class LPlayer : PlayerManager
 {
-    private int nowIndex = 2;
-    private int spawnIndex = 0;
-    public int SpawnIndex => spawnIndex;
-
-    public bool isMove = false;
-
     private void Start()
     {
         Hp = 30f;
         BirdFood = 50;
+        maxFood = BirdFood;
     }
     void Update()
     {
+        InBrokenWindow();
+
         if(!isMove && Hp > 0)
         {
             if (Input.GetKeyDown(KeyCode.W))
@@ -34,12 +31,7 @@ public class LPlayer : PlayerManager
                 if (nowIndex < 0)
                     nowIndex = window.Length - 1;
                 StartCoroutine(MoveFloor());
-            }
-            if (Input.GetKeyDown(KeyCode.A))
-            {
-                spawnIndex--;
-                if (spawnIndex < 0)
-                    spawnIndex = birds.Length - 1;
+                DOTween.Kill(transform,true);
             }
 
             if (Input.GetKeyDown(KeyCode.D))
@@ -47,15 +39,17 @@ public class LPlayer : PlayerManager
                 spawnIndex++;
                 if (spawnIndex > birds.Length - 1)
                     spawnIndex = 0;
+                Debug.Log(spawnIndex);
             }
             if(Input.GetKeyDown(KeyCode.Space))
             {
+                birdSize = showBird[spawnIndex].GetComponent<ChageShowScale>().birdType;
                 Summon(Team.left,birds[spawnIndex],new Vector2(transform.position.x + 0.5f,transform.position.y - 0.7f),Quaternion.identity,birdSize);
             }
         }
 
         if(Input.GetKeyDown(KeyCode.P))
-            Hp = 0;
+            Hp -= 1;
         if(Hp <= 0 && !GameOver)
         {
             GameOver = true;
@@ -69,13 +63,14 @@ public class LPlayer : PlayerManager
     IEnumerator MoveFloor()
     {
         isMove = true;
+        DOTween.Kill(transform);
         DOTween.Sequence().Append(transform.DORotate(new Vector3(0, 180, 0), 0.3f)
         .OnComplete(() => DOTween.Sequence().Append(transform.DOMoveX(transform.position.x - 1f, 0.5f))));
         yield return new WaitForSeconds(1f);
         transform.rotation = Quaternion.Euler(0, 0, 0);
         transform.position = new Vector3(transform.position.x, window[nowIndex].transform.position.y + 0.7f);
         transform.DOMoveX(transform.position.x +1f, 0.5f);
-        yield return new WaitForSeconds(0.7f);
+        yield return new WaitForSeconds(0.5f);
         yield return isMove = false;
     }
 }

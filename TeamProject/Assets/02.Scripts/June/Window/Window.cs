@@ -14,10 +14,15 @@ public class Window : MonoBehaviour
     public float Hp;
     [SerializeField] Sprite[] sprites;
     private SpriteRenderer spR;
+    private BoxCollider2D boxCollider2D;
+
+    [SerializeField] RPlayer rPlayer;
+    [SerializeField] LPlayer lPlayer;
 
     private void Awake()
     {
         spR = GetComponent<SpriteRenderer>();
+        boxCollider2D = GetComponent<BoxCollider2D>();
     }
 
     public void Damage(float damage)
@@ -39,6 +44,16 @@ public class Window : MonoBehaviour
         if(Hp <= 0)
         {
             spR.sprite = sprites[1];
+
+            if(team == Team.right)
+            {
+                lPlayer.BirdFood = lPlayer.maxFood;
+            }
+            else if(team == Team.left)
+            {
+                rPlayer.BirdFood = rPlayer.maxFood;
+            }
+            boxCollider2D.enabled = false;
         }
         else if(Hp <= 10)
         {

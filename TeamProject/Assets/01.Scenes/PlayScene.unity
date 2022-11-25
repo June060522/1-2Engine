@@ -702,6 +702,8 @@ MonoBehaviour:
   sprites:
   - {fileID: 21300000, guid: c7a25a7aef8e1c74194c57fdfdb537cb, type: 3}
   - {fileID: 21300000, guid: c1a63b0a59d1e3744833208530cc560e, type: 3}
+  rPlayer: {fileID: 1818732627}
+  lPlayer: {fileID: 319965066}
 --- !u!212 &158274845
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1003,6 +1005,7 @@ GameObject:
   - component: {fileID: 291234964}
   - component: {fileID: 291234965}
   - component: {fileID: 291234966}
+  - component: {fileID: 291234967}
   m_Layer: 0
   m_Name: BlueNormalBird
   m_TagString: Untagged
@@ -1097,6 +1100,23 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &291234967
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 291234963}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf2568fc39ee1af4c97df9a47626bde8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  birdType: 2
+  selectIndex: 0
+  team: 1
+  lPlayer: {fileID: 319965066}
+  rPlayer: {fileID: 1818732627}
 --- !u!1 &319965062
 GameObject:
   m_ObjectHideFlags: 0
@@ -1108,7 +1128,7 @@ GameObject:
   - component: {fileID: 319965065}
   - component: {fileID: 319965064}
   - component: {fileID: 319965066}
-  - component: {fileID: 319965067}
+  - component: {fileID: 319965068}
   m_Layer: 0
   m_Name: LPlayer
   m_TagString: Untagged
@@ -1204,18 +1224,24 @@ MonoBehaviour:
   - {fileID: 3922882441395642639, guid: d461899fc25bb9b479ff096eec25c13d, type: 3}
   - {fileID: 3922882441395642639, guid: 2dd49e1dc9b938a4985087e3bff3da90, type: 3}
   - {fileID: 3922882441395642639, guid: 584a0e67839700943a5479fbea8afc82, type: 3}
+  showBird:
+  - {fileID: 1652197270}
+  - {fileID: 985714249}
+  - {fileID: 1962001208}
+  - {fileID: 2081585598}
   GameOver: 0
+  maxFood: 0
   isMove: 0
---- !u!114 &319965067
+--- !u!114 &319965068
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 319965062}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a9b3935f332904468f542eb42174c96, type: 3}
+  m_Script: {fileID: 11500000, guid: 65ea554614079fe44a6ed5fc521d0e9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   playerName: 1
@@ -2857,6 +2883,8 @@ MonoBehaviour:
   sprites:
   - {fileID: 21300000, guid: c7a25a7aef8e1c74194c57fdfdb537cb, type: 3}
   - {fileID: 21300000, guid: c1a63b0a59d1e3744833208530cc560e, type: 3}
+  rPlayer: {fileID: 1818732627}
+  lPlayer: {fileID: 319965066}
 --- !u!212 &589721371
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3020,6 +3048,7 @@ GameObject:
   - component: {fileID: 739442451}
   - component: {fileID: 739442452}
   - component: {fileID: 739442453}
+  - component: {fileID: 739442454}
   m_Layer: 0
   m_Name: BlueCircleBird
   m_TagString: Untagged
@@ -3114,6 +3143,23 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &739442454
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 739442450}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf2568fc39ee1af4c97df9a47626bde8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  birdType: 2
+  selectIndex: 2
+  team: 1
+  lPlayer: {fileID: 319965066}
+  rPlayer: {fileID: 1818732627}
 --- !u!1 &746203845
 GameObject:
   m_ObjectHideFlags: 0
@@ -3694,6 +3740,8 @@ MonoBehaviour:
   sprites:
   - {fileID: 21300000, guid: c7a25a7aef8e1c74194c57fdfdb537cb, type: 3}
   - {fileID: 21300000, guid: c1a63b0a59d1e3744833208530cc560e, type: 3}
+  rPlayer: {fileID: 1818732627}
+  lPlayer: {fileID: 319965066}
 --- !u!212 &839084626
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4302,10 +4350,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -4537,6 +4585,7 @@ GameObject:
   - component: {fileID: 929838176}
   - component: {fileID: 929838177}
   - component: {fileID: 929838178}
+  - component: {fileID: 929838179}
   m_Layer: 0
   m_Name: BlueFastBird
   m_TagString: Untagged
@@ -4631,6 +4680,23 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &929838179
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 929838175}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf2568fc39ee1af4c97df9a47626bde8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  birdType: 2
+  selectIndex: 3
+  team: 1
+  lPlayer: {fileID: 319965066}
+  rPlayer: {fileID: 1818732627}
 --- !u!1 &971824564
 GameObject:
   m_ObjectHideFlags: 0
@@ -4826,6 +4892,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   birdType: 2
+  selectIndex: 1
+  team: 2
+  lPlayer: {fileID: 319965066}
+  rPlayer: {fileID: 1818732627}
 --- !u!1 &990991771
 GameObject:
   m_ObjectHideFlags: 0
@@ -5199,6 +5269,8 @@ MonoBehaviour:
   sprites:
   - {fileID: 21300000, guid: c7a25a7aef8e1c74194c57fdfdb537cb, type: 3}
   - {fileID: 21300000, guid: c1a63b0a59d1e3744833208530cc560e, type: 3}
+  rPlayer: {fileID: 1818732627}
+  lPlayer: {fileID: 319965066}
 --- !u!212 &1096497370
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6460,6 +6532,8 @@ MonoBehaviour:
   sprites:
   - {fileID: 21300000, guid: c7a25a7aef8e1c74194c57fdfdb537cb, type: 3}
   - {fileID: 21300000, guid: c1a63b0a59d1e3744833208530cc560e, type: 3}
+  rPlayer: {fileID: 1818732627}
+  lPlayer: {fileID: 319965066}
 --- !u!212 &1474778689
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7159,6 +7233,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   birdType: 2
+  selectIndex: 0
+  team: 2
+  lPlayer: {fileID: 319965066}
+  rPlayer: {fileID: 1818732627}
 --- !u!1 &1655094376
 GameObject:
   m_ObjectHideFlags: 0
@@ -7486,6 +7564,7 @@ GameObject:
   - component: {fileID: 1688051403}
   - component: {fileID: 1688051404}
   - component: {fileID: 1688051405}
+  - component: {fileID: 1688051406}
   m_Layer: 0
   m_Name: BlueLongBird
   m_TagString: Untagged
@@ -7580,6 +7659,23 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1688051406
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1688051402}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf2568fc39ee1af4c97df9a47626bde8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  birdType: 2
+  selectIndex: 1
+  team: 1
+  lPlayer: {fileID: 319965066}
+  rPlayer: {fileID: 1818732627}
 --- !u!1 &1736231067
 GameObject:
   m_ObjectHideFlags: 0
@@ -7948,7 +8044,13 @@ MonoBehaviour:
   - {fileID: 5011487601663078629, guid: b2fc14e8b23a30d4ba29b863cb4e4600, type: 3}
   - {fileID: 5011487601663078629, guid: 070297205dffc7d439f0091eed5a37f7, type: 3}
   - {fileID: 5011487601663078629, guid: 7467b8bc17fe07640be2bdd52e0ef0ed, type: 3}
+  showBird:
+  - {fileID: 291234963}
+  - {fileID: 1688051402}
+  - {fileID: 739442450}
+  - {fileID: 2081585598}
   GameOver: 0
+  maxFood: 0
   isMove: 0
 --- !u!114 &1818732628
 MonoBehaviour:
@@ -7957,9 +8059,9 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1818732624}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a9b3935f332904468f542eb42174c96, type: 3}
+  m_Script: {fileID: 11500000, guid: 65ea554614079fe44a6ed5fc521d0e9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   playerName: 2
@@ -8460,6 +8562,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   birdType: 2
+  selectIndex: 2
+  team: 2
+  lPlayer: {fileID: 319965066}
+  rPlayer: {fileID: 1818732627}
 --- !u!1 &1996554036
 GameObject:
   m_ObjectHideFlags: 0
@@ -9072,6 +9178,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   birdType: 2
+  selectIndex: 3
+  team: 2
+  lPlayer: {fileID: 319965066}
+  rPlayer: {fileID: 1818732627}
 --- !u!1 &2103603273
 GameObject:
   m_ObjectHideFlags: 0
@@ -9276,6 +9386,8 @@ MonoBehaviour:
   sprites:
   - {fileID: 21300000, guid: c7a25a7aef8e1c74194c57fdfdb537cb, type: 3}
   - {fileID: 21300000, guid: c1a63b0a59d1e3744833208530cc560e, type: 3}
+  rPlayer: {fileID: 1818732627}
+  lPlayer: {fileID: 319965066}
 --- !u!212 &2141233539
 SpriteRenderer:
   m_ObjectHideFlags: 0
