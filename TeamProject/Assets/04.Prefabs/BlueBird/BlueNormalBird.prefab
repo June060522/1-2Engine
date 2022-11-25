@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5011487601663078648}
   - component: {fileID: 5011487601663078649}
   - component: {fileID: 5011487601663078654}
+  - component: {fileID: 3457260990250517110}
   m_Layer: 0
   m_Name: BlueNormalBird
   m_TagString: Bird
@@ -99,9 +100,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83da1599498e3354f851321b1734598e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  birdSize: 1
+  birdSize: 2
   speed: 1
-  bridFood: 1
+  needFood: 1
   team: 2
   power: 5
 --- !u!61 &5011487601663078649
@@ -151,3 +152,23 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!95 &3457260990250517110
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5011487601663078629}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: dbec1814bece95b4e918c65c3960403c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

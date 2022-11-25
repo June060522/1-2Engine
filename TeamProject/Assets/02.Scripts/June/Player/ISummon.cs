@@ -4,5 +4,5 @@ using UnityEngine;
 
 public interface ISummon 
 {
-    public void Summon(Team team,GameObject bird, Vector2 pos, Quaternion rotation);
+    public void Summon(Team team,GameObject bird, Vector2 pos, Quaternion rotation, BirdType birdType);
 }

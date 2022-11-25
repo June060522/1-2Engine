@@ -18,7 +18,13 @@ public class NormalBird : Bird
             dir = Vector2.right;
         }
         if (canMove)
-            IMove(dir, speed);
+        {
+            if(team == Team.right)
+                IMove(-dir, speed);
+            else
+                IMove(dir,speed);
+
+        }
 
         if (!canMove)
         {
