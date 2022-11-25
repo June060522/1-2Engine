@@ -5,13 +5,14 @@ using System;
 
 public class PlayerManager : MonoBehaviour, ISummon
 {
-    public void Summon(Team team, GameObject bird, Vector2 pos,Quaternion rotation)
+    public void Summon(Team team, GameObject bird, Vector2 pos,Quaternion rotation,BirdType birdType)
     {
-        if(BirdFood >= bird.GetComponent<Bird>().bridFood)
+        if(BirdFood >= bird.GetComponent<Bird>().needFood)
         {
-            BirdFood -= bird.GetComponent<Bird>().bridFood;
+            birdFood -= bird.GetComponent<Bird>().needFood;
             bird = PoolManager.Instance.Pop(bird, pos, rotation);
             bird.GetComponent<Bird>().team = team;
+            bird.GetComponent<Bird>().birdSize = birdType;
         }
     }
     [SerializeField] protected GameObject[] window;
@@ -22,6 +23,8 @@ public class PlayerManager : MonoBehaviour, ISummon
     private float birdFood;
     public float Hp { get => hp; set => hp = value; }
     public float BirdFood { get => birdFood; set => birdFood = value;}
+
+    protected BirdType birdSize = BirdType.Big;
 
     protected void Awake()
     {

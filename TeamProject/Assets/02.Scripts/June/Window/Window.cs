@@ -12,14 +12,17 @@ public class Window : MonoBehaviour
 {
     public Team team = Team.right;
     public float Hp;
+    [SerializeField] Sprite[] sprites;
+    private SpriteRenderer spR;
+
+    private void Awake()
+    {
+        spR = GetComponent<SpriteRenderer>();
+    }
 
     public void Damage(float damage)
     {
         StartCoroutine(OnDamage(damage));
-        if(Hp <= 0)
-        {
-            gameObject.SetActive(false);
-        }
     }
 
     IEnumerator OnDamage(float damage)
@@ -32,6 +35,14 @@ public class Window : MonoBehaviour
             Hp -= yieldDamage;
             returnDamage += yieldDamage;
             yield return new WaitForSeconds(0.01f);
+        }
+        if(Hp <= 0)
+        {
+            spR.sprite = sprites[1];
+        }
+        else if(Hp <= 10)
+        {
+            spR.sprite = sprites[0];
         }
         yield return null;
     }

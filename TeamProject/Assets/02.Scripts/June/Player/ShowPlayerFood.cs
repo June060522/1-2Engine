@@ -10,20 +10,22 @@ public class ShowPlayerFood : MonoBehaviour
     [SerializeField] LPlayer lPlayer;
     [SerializeField] PlayerName playerName = PlayerName.Lplayer;
     private float playerMaxFood = 0f;
-    void Start()
-    {
-        if(playerName == PlayerName.Lplayer)
-            playerMaxFood = lPlayer.BirdFood;
-        else if(playerName == PlayerName.Rplayer)
-            playerMaxFood = rPlayer.BirdFood;
-    }
 
-    
+    private bool check = true;
+
     void Update()
     {
-        if(playerName == PlayerName.Lplayer)
+        if (check)
+        {
+            if (playerName == PlayerName.Lplayer)
+                playerMaxFood = lPlayer.BirdFood;
+            else if (playerName == PlayerName.Rplayer)
+                playerMaxFood = rPlayer.BirdFood;
+            check = false;
+        }
+        if (playerName == PlayerName.Lplayer)
             FoodSlider.value = lPlayer.BirdFood / playerMaxFood;
-        else if(playerName == PlayerName.Rplayer)
+        else if (playerName == PlayerName.Rplayer)
             FoodSlider.value = rPlayer.BirdFood / playerMaxFood;
     }
 }

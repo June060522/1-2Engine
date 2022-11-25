@@ -8,6 +8,8 @@ public class RPlayer : PlayerManager
 {
     private int nowIndex = 2;
     private int spawnIndex = 0;
+    public int SpawnIndex => spawnIndex;
+
     public bool isMove = false;
 
     private void Start()
@@ -53,7 +55,7 @@ public class RPlayer : PlayerManager
 
             if (Input.GetKeyDown(KeyCode.RightShift))
             {
-                Summon(Team.right, birds[spawnIndex], new Vector2(transform.position.x-0.5f, transform.position.y - 0.7f),Quaternion.Euler(0,180,0));
+                Summon(Team.right, birds[spawnIndex], new Vector2(transform.position.x-0.5f, transform.position.y - 0.7f),Quaternion.Euler(0,180,0),birdSize);
             }
         }
 

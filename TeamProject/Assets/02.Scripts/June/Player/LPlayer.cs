@@ -8,6 +8,7 @@ public class LPlayer : PlayerManager
 {
     private int nowIndex = 2;
     private int spawnIndex = 0;
+    public int SpawnIndex => spawnIndex;
 
     public bool isMove = false;
 
@@ -49,7 +50,7 @@ public class LPlayer : PlayerManager
             }
             if(Input.GetKeyDown(KeyCode.Space))
             {
-                Summon(Team.left,birds[spawnIndex],new Vector2(transform.position.x + 0.5f,transform.position.y - 0.7f),Quaternion.identity);
+                Summon(Team.left,birds[spawnIndex],new Vector2(transform.position.x + 0.5f,transform.position.y - 0.7f),Quaternion.identity,birdSize);
             }
         }
 
