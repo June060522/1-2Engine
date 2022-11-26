@@ -31,7 +31,6 @@ public class NormalBird : Bird
             time += Time.deltaTime;
             if (time >= 2f)
             {
-                time = 0f;
                 canMove = true;
             }
         }
@@ -39,8 +38,9 @@ public class NormalBird : Bird
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Bird") && team != other.GetComponent<NormalBird>().team)
+        if (other.CompareTag("Bird") && team != other.GetComponent<Bird>().team)
         {
+            time = 0f;
             IFight(other.GetComponent<Bird>().birdSize);
         }
 

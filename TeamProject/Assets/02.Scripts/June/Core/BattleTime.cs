@@ -3,13 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
+using DG.Tweening;
 
 public class BattleTime : MonoBehaviour
 {
     [SerializeField]TextMeshProUGUI timeTxt;
+    [SerializeField]TextMeshProUGUI showTxt;
     [SerializeField]float playTime = 300f;
     [SerializeField]LPlayer lPlayer;
     [SerializeField]RPlayer rPlayer;
+
+    private bool oneTime = false;
+    private bool twoTime = false;
 
     private void Awake()
     {
@@ -18,6 +23,8 @@ public class BattleTime : MonoBehaviour
 
     void Update()
     {
+        if(Input.GetKeyDown(KeyCode.Tab))
+            playTime -= 15f;
         if(lPlayer.Hp > 0 && rPlayer.Hp > 0)
         {
             playTime -= Time.deltaTime;
@@ -27,6 +34,23 @@ public class BattleTime : MonoBehaviour
         if(playTime <= 0)
         {
             SceneManager.LoadScene("EndScene");
+        }
+
+        if(!oneTime && playTime < 200)
+        {
+            showTxt.DOFade(255,0.1f);
+            showTxt.DOFade(0,2f);
+            lPlayer.PlusBirdFood *= 2;
+            rPlayer.PlusBirdFood *= 2;
+            oneTime = true;
+        }
+        else if(!twoTime && playTime < 100)
+        {
+            showTxt.DOFade(255,0.1f);
+            showTxt.DOFade(0,2f);
+            lPlayer.PlusBirdFood *= 2;
+            rPlayer.PlusBirdFood *= 2;
+            twoTime = true;
         }
     }
 }

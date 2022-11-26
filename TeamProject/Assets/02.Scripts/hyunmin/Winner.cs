@@ -10,7 +10,7 @@ public class Winner : MonoBehaviour
     void Start()
     {
         _textMeshProUGUI = GetComponentInChildren<TextMeshProUGUI>();
-        Win("Player");
+        Win(PlayerPrefs.GetString("WinnerName","none"));
     }
 
     private void Win(string name)

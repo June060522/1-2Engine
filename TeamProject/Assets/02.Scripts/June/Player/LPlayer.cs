@@ -6,12 +6,6 @@ using UnityEngine.SceneManagement;
 
 public class LPlayer : PlayerManager
 {
-    private void Start()
-    {
-        Hp = 30f;
-        BirdFood = 50;
-        maxFood = BirdFood;
-    }
     void Update()
     {
         InBrokenWindow();
@@ -39,12 +33,19 @@ public class LPlayer : PlayerManager
                 spawnIndex++;
                 if (spawnIndex > birds.Length - 1)
                     spawnIndex = 0;
-                Debug.Log(spawnIndex);
             }
-            if(Input.GetKeyDown(KeyCode.Space))
+            if(Input.GetKeyDown(KeyCode.Space) && nowSpawn < maxSpawn &&
+            SpawnCol.Instance.LplayerNowSpawnCool[spawnIndex] > SpawnCol.Instance.LplayerSpawnCool[spawnIndex])
             {
+                SpawnCol.Instance.LplayerNowSpawnCool[spawnIndex] = 0;
                 birdSize = showBird[spawnIndex].GetComponent<ChageShowScale>().birdType;
                 Summon(Team.left,birds[spawnIndex],new Vector2(transform.position.x + 0.5f,transform.position.y - 0.7f),Quaternion.identity,birdSize);
+                nowSpawn++;
+            }
+
+            if(BirdFood < maxFood)
+            {
+                SetPlusBirdFood(plusBirdFood);
             }
         }
 
@@ -53,6 +54,7 @@ public class LPlayer : PlayerManager
         if(Hp <= 0 && !GameOver)
         {
             GameOver = true;
+            PlayerPrefs.SetString("WinnerName",PlayerPrefs.GetString("RPlayerName"));;
             transform.GetComponent<SpriteRenderer>().sortingOrder = 999;
             DOTween.Sequence().Append(transform.DORotate(new Vector3(0, 0, -16), 0.3f)
             .OnComplete(() => transform.DOMoveY(-7,2f)
