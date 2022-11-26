@@ -10,10 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 3922882441395642633}
   - component: {fileID: 3922882441395642632}
-  - component: {fileID: 3922882441395642634}
   - component: {fileID: 1954544327}
   - component: {fileID: 1954544328}
   - component: {fileID: 1920642233050252121}
+  - component: {fileID: -298344511412120037}
   m_Layer: 0
   m_Name: RedFastBird
   m_TagString: Bird
@@ -88,23 +88,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &3922882441395642634
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3922882441395642639}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 83da1599498e3354f851321b1734598e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  birdSize: 2
-  speed: 1
-  needFood: 1
-  team: 1
-  power: 0
 --- !u!61 &1954544327
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -172,3 +155,21 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &-298344511412120037
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3922882441395642639}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52ca2f13814a5e64d971da1d3cc40ac2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  birdSize: 2
+  speed: 2
+  needFood: 7
+  team: 1
+  hp: 1
+  power: 2

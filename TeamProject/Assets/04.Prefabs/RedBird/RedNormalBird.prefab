@@ -102,8 +102,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   birdSize: 2
   speed: 1
-  needFood: 1
+  needFood: 5
   team: 2
+  hp: 1
   power: 1
 --- !u!61 &1954544327
 BoxCollider2D:
