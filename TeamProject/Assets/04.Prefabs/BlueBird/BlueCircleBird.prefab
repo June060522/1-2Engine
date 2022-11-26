@@ -10,10 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 5011487601663078651}
   - component: {fileID: 5011487601663078650}
-  - component: {fileID: 5011487601663078648}
   - component: {fileID: 5011487601663078649}
   - component: {fileID: 5011487601663078654}
   - component: {fileID: -7108919845725496919}
+  - component: {fileID: -8220762083722662057}
   m_Layer: 0
   m_Name: BlueCircleBird
   m_TagString: Bird
@@ -88,23 +88,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &5011487601663078648
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5011487601663078629}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 83da1599498e3354f851321b1734598e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  birdSize: 2
-  speed: 1
-  needFood: 1
-  team: 2
-  power: 5
 --- !u!61 &5011487601663078649
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -172,3 +155,21 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &-8220762083722662057
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5011487601663078629}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df5efabd2984b524b91f001ad7aa1794, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  birdSize: 2
+  speed: 1
+  needFood: 10
+  team: 1
+  hp: 2
+  power: 3

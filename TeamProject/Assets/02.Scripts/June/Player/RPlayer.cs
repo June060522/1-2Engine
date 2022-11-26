@@ -67,12 +67,13 @@ public class RPlayer : PlayerManager
     IEnumerator MoveFloor()
     {
         isMove = true;
+        DOTween.Kill(transform);
         DOTween.Sequence().Append(transform.DORotate(new Vector3(0, 0, 0), 0.3f))
         .OnComplete(() => DOTween.Sequence().Append(transform.DOMove(new Vector3(transform.position.x + 1f, transform.position.y), 0.5f)));
-        yield return new WaitForSeconds(0.8f);
+        yield return new WaitForSeconds(1f);
         transform.rotation = Quaternion.Euler(0, 180, 0);
         transform.position = new Vector3(transform.position.x, window[nowIndex].transform.position.y + 0.7f);
-        transform.DOMove(new Vector3(transform.position.x - 1f, transform.position.y), 0.5f);
+        transform.DOMoveX(transform.position.x - 1f, 0.5f);
         yield return new WaitForSeconds(0.5f);
         yield return isMove = false;
     }
