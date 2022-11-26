@@ -172,4 +172,5 @@ MonoBehaviour:
   needFood: 7
   team: 1
   hp: 1
+  FightImage: {fileID: 5490590238014746158, guid: 14667b71d6bcaad4caaae9eb1eb23e11, type: 3}
   power: 2

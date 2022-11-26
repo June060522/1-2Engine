@@ -15,6 +15,6 @@ public class Winner : MonoBehaviour
 
     private void Win(string name)
     { 
-        _textMeshProUGUI.text = name + " Win!!";
+        _textMeshProUGUI.text = name;
     }
 }

@@ -28,7 +28,7 @@ public class CircleBird : Bird
         if (!canMove)
         {
             time += Time.deltaTime;
-            if (time >= 2f)
+            if (time >= 1f)
             {
                 canMove = true;
             }
@@ -43,6 +43,9 @@ public class CircleBird : Bird
         {
             time = 0f;
             IFight(other.GetComponent<Bird>().birdSize);
+
+            if(team == Team.right)
+                PoolManager.Instance.Pop(FightImage,transform.position,Quaternion.identity);
         }
 
         if (other.CompareTag("Window"))

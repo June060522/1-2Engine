@@ -37,10 +37,8 @@ public class LPlayer : PlayerManager
             if(Input.GetKeyDown(KeyCode.Space) && nowSpawn < maxSpawn &&
             SpawnCol.Instance.LplayerNowSpawnCool[spawnIndex] > SpawnCol.Instance.LplayerSpawnCool[spawnIndex])
             {
-                SpawnCol.Instance.LplayerNowSpawnCool[spawnIndex] = 0;
                 birdSize = showBird[spawnIndex].GetComponent<ChageShowScale>().birdType;
                 Summon(Team.left,birds[spawnIndex],new Vector2(transform.position.x + 0.5f,transform.position.y - 0.7f),Quaternion.identity,birdSize);
-                nowSpawn++;
             }
 
             if(BirdFood < maxFood)
@@ -54,7 +52,7 @@ public class LPlayer : PlayerManager
         if(Hp <= 0 && !GameOver)
         {
             GameOver = true;
-            PlayerPrefs.SetString("WinnerName",PlayerPrefs.GetString("RPlayerName"));;
+            PlayerPrefs.SetString("WinnerName",PlayerPrefs.GetString("RPlayerName")+ " Win!!");
             transform.GetComponent<SpriteRenderer>().sortingOrder = 999;
             DOTween.Sequence().Append(transform.DORotate(new Vector3(0, 0, -16), 0.3f)
             .OnComplete(() => transform.DOMoveY(-7,2f)
