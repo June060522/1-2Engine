@@ -15,6 +15,7 @@ public class Bird : MonoBehaviour, IBird
     RPlayer rPlayer;
     private int Hp = 0;
     protected float time = 0f;
+    [SerializeField] protected GameObject FightImage;
     private void Awake()
     {
         Hp = hp;

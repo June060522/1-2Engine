@@ -40,10 +40,8 @@ public class RPlayer : PlayerManager
             if (Input.GetKeyDown(KeyCode.RightShift) && nowSpawn < maxSpawn && 
             SpawnCol.Instance.RplayerNowSpawnCool[spawnIndex] > SpawnCol.Instance.RplayerSpawnCool[spawnIndex])
             {
-                SpawnCol.Instance.RplayerNowSpawnCool[spawnIndex] = 0;
                 birdSize = showBird[spawnIndex].GetComponent<ChageShowScale>().birdType;
                 Summon(Team.right, birds[spawnIndex], new Vector2(transform.position.x-0.5f, transform.position.y - 0.7f),Quaternion.Euler(0,180,0),birdSize);
-                nowSpawn++;
             }
             if(BirdFood < maxFood)
             {
@@ -56,7 +54,7 @@ public class RPlayer : PlayerManager
         if(Hp <= 0 && !GameOver)
         {
             GameOver = true;
-            PlayerPrefs.SetString("WinnerName",PlayerPrefs.GetString("LPlayerName"));
+            PlayerPrefs.SetString("WinnerName",PlayerPrefs.GetString("LPlayerName")+ " Win!!");
             transform.GetComponent<SpriteRenderer>().sortingOrder = 999;
             DOTween.Sequence().Append(transform.DORotate(new Vector3(0, 180, -16), 0.3f)
             .OnComplete(() => transform.DOMoveY(-7,2f)

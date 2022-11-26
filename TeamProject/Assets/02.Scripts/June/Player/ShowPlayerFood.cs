@@ -20,12 +20,12 @@ public class ShowPlayerFood : MonoBehaviour
             if (playerName == PlayerName.Lplayer)
             {
                 playerMaxFood = lPlayer.BirdFood;
-                lPlayer.BirdFood = 0;
+                lPlayer.BirdFood = 10;
             }
             else if (playerName == PlayerName.Rplayer)
             {
                 playerMaxFood = rPlayer.BirdFood;
-                rPlayer.BirdFood = 0;
+                rPlayer.BirdFood = 10;
             }
             check = false;
         }

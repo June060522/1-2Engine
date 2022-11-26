@@ -10,9 +10,13 @@ public class PlayerManager : MonoBehaviour, ISummon
         if((birdType == BirdType.Small)? BirdFood >= bird.GetComponent<Bird>().needFood : BirdFood * 2 >= bird.GetComponent<Bird>().needFood)
         {
             bird = PoolManager.Instance.Pop(bird, pos, rotation);
-            Bird B = bird.GetComponent<Bird>(); 
+            Bird B = bird.GetComponent<Bird>();
             B.team = team;
             B.birdSize = birdType;
+            if(B.team == Team.right)
+                SpawnCol.Instance.RplayerNowSpawnCool[spawnIndex] = 0;
+            else if(B.team == Team.left)
+                SpawnCol.Instance.LplayerNowSpawnCool[spawnIndex] = 0;
             if(birdType == BirdType.Big)
             {
                 birdFood -= B.needFood * 2;
@@ -23,6 +27,7 @@ public class PlayerManager : MonoBehaviour, ISummon
                 birdFood -= B.needFood;
                 bird.transform.localScale = new Vector3(0.2f,0.2f,1);
             }
+            nowSpawn++;
         }
     }
     [SerializeField] protected GameObject[] window;

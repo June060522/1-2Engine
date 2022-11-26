@@ -33,6 +33,18 @@ public class BattleTime : MonoBehaviour
 
         if(playTime <= 0)
         {
+            if(lPlayer.Hp > rPlayer.Hp)
+            {
+                PlayerPrefs.SetString("WinnerName",PlayerPrefs.GetString("LPlayerName")+ " Win!!");
+            }
+            else if(lPlayer.Hp < rPlayer.Hp)
+            {
+                PlayerPrefs.SetString("WinnerName",PlayerPrefs.GetString("RPlayerName")+ " Win!!");
+            }
+            else if((lPlayer.Hp == rPlayer.Hp))
+            {
+                PlayerPrefs.SetString("WinnerName","Drew");
+            }
             SceneManager.LoadScene("EndScene");
         }
 

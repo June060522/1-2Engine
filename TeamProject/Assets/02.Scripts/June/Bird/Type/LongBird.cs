@@ -28,11 +28,13 @@ public class LongBird : Bird
         if (!canMove)
         {
             time += Time.deltaTime;
-            if (time >= 2f)
+            if (time >= 1f)
             {
                 canMove = true;
             }
         }
+        if(hp <= 0)
+            PoolManager.Instance.Push(this.gameObject);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -45,6 +47,9 @@ public class LongBird : Bird
 
             if(bird.birdSize == BirdType.Big && birdSize == BirdType.Small)
                 PoolManager.Instance.Push(other.gameObject);
+
+            if(team == Team.right)
+            PoolManager.Instance.Pop(FightImage,transform.position,Quaternion.identity);
         }
 
         if (other.CompareTag("Window"))
