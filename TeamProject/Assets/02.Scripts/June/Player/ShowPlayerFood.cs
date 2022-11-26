@@ -18,14 +18,21 @@ public class ShowPlayerFood : MonoBehaviour
         if (check)
         {
             if (playerName == PlayerName.Lplayer)
+            {
                 playerMaxFood = lPlayer.BirdFood;
+                lPlayer.BirdFood = 0;
+            }
             else if (playerName == PlayerName.Rplayer)
+            {
                 playerMaxFood = rPlayer.BirdFood;
+                rPlayer.BirdFood = 0;
+            }
             check = false;
         }
         if (playerName == PlayerName.Lplayer)
             FoodSlider.value = lPlayer.BirdFood / playerMaxFood;
         else if (playerName == PlayerName.Rplayer)
             FoodSlider.value = rPlayer.BirdFood / playerMaxFood;
+
     }
 }

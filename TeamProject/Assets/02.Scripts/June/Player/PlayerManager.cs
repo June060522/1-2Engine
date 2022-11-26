@@ -7,19 +7,20 @@ public class PlayerManager : MonoBehaviour, ISummon
 {
     public void Summon(Team team, GameObject bird, Vector2 pos,Quaternion rotation,BirdType birdType)
     {
-        if(BirdFood >= bird.GetComponent<Bird>().needFood)
+        if((birdType == BirdType.Small)? BirdFood >= bird.GetComponent<Bird>().needFood : BirdFood * 2 >= bird.GetComponent<Bird>().needFood)
         {
             bird = PoolManager.Instance.Pop(bird, pos, rotation);
-            bird.GetComponent<Bird>().team = team;
-            bird.GetComponent<Bird>().birdSize = birdType;
+            Bird B = bird.GetComponent<Bird>(); 
+            B.team = team;
+            B.birdSize = birdType;
             if(birdType == BirdType.Big)
             {
-                birdFood -= bird.GetComponent<Bird>().needFood * 2;
+                birdFood -= B.needFood * 2;
                 bird.transform.localScale = new Vector3(0.3f,0.3f,1);
             }
             else
             {
-                birdFood -= bird.GetComponent<Bird>().needFood;
+                birdFood -= B.needFood;
                 bird.transform.localScale = new Vector3(0.2f,0.2f,1);
             }
         }
@@ -36,6 +37,10 @@ public class PlayerManager : MonoBehaviour, ISummon
     public float Hp { get => hp; set => hp = value; }
     public float BirdFood { get => birdFood; set => birdFood = value;}
     public float maxFood;
+    protected int maxSpawn = 5;
+    public int nowSpawn = 0;
+    protected float plusBirdFood = 0.01f;
+    public float PlusBirdFood {get => plusBirdFood; set => plusBirdFood = value;}
 
     protected int nowIndex = 2;
     protected int spawnIndex = 0;
@@ -72,5 +77,14 @@ public class PlayerManager : MonoBehaviour, ISummon
         {
             windowS[i] = window[i].GetComponent<Window>();
         }
+
+        Hp = 30f;
+        BirdFood = 50;
+        maxFood = BirdFood;
+    }
+
+    protected void SetPlusBirdFood(float plus)
+    {
+        BirdFood += plus;
     }
 }
