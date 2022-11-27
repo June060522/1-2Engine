@@ -50,9 +50,22 @@ public class NormalBird : Bird
 
         if (other.CompareTag("Window"))
         {
-            if (other.GetComponent<Window>().team != team)
+            Window window = other.GetComponent<Window>();
+            if (window.team != team && window.Hp > 0)
             {
-                other.GetComponent<Window>().Damage(power);
+                window.Damage(power);
+                PoolManager.Instance.Push(this.gameObject);
+            }
+            else if(window.team != team && window.Hp <= 0)
+            {
+                if(team == Team.right)
+                {
+                    lPlayer.Hp -= power;
+                }
+                else if(team == Team.left)
+                {
+                    rPlayer.Hp -= power;
+                }
                 PoolManager.Instance.Push(this.gameObject);
             }
         }
