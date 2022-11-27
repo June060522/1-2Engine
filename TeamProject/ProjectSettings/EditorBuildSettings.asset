@@ -15,9 +15,6 @@ EditorBuildSettings:
     path: Assets/01.Scenes/EndScene.unity
     guid: f61d2d9c30c11e449b9712b5b5222931
   - enabled: 1
-    path: Assets/01.Scenes/ModeScene1.unity
-    guid: 022a74358cb9fe442acd491f967e3f45
-  - enabled: 1
     path: Assets/01.Scenes/CollaborationScene.unity
     guid: bc45a60eee2ed9143a9b58552f427319
   m_configObjects: {}

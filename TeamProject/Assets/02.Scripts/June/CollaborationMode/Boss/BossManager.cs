@@ -9,7 +9,21 @@ public class BossManager : MonoBehaviour , IBoss
 
     [SerializeField] float power;
     public float Power{get => power; set => power = value;}
-    
+
+    [SerializeField] protected CLPlayer cLPlayer;
+    [SerializeField] protected CRPlayer cRPlayer;
+    [SerializeField] protected TurnObject turnObject;
+
+    protected float x;
+    protected SpriteRenderer spriteRenderer;
+
+    protected int pattern = 0;
+
+    private void Awake()
+    {
+        spriteRenderer = GetComponent<SpriteRenderer>();
+    }
+
     public void IAttack(GameObject target, float attackDelay)
     {
         throw new System.NotImplementedException();
@@ -22,6 +36,14 @@ public class BossManager : MonoBehaviour , IBoss
 
     public void IOnDamage(float damage)
     {
-        throw new System.NotImplementedException();
+        hp-= damage;
+    }
+
+    private void OnTriggerStay2D(Collider2D other)
+    {
+        if(other.CompareTag("Bird"))
+        {
+            other.GetComponent<CPlayManager>().Hp -= power;
+        }
     }
 }

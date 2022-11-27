@@ -5,6 +5,7 @@ using UnityEngine;
 public class CPlayManager : MonoBehaviour
 {
     [SerializeField] protected GameObject throwFood;
+    [SerializeField] protected CBirdRotate cBirdRotate;
 
     [SerializeField] float hp;
     public float Hp{get => hp; set => hp = value;}
@@ -13,6 +14,8 @@ public class CPlayManager : MonoBehaviour
     [SerializeField] float jumpPower;
     public float JumpPower{get => jumpPower; set => jumpPower = value;}
 
+    protected SpriteRenderer spriteRenderer;
+
     public bool isAlive = true;
 
     protected Rigidbody2D rb2D;
@@ -20,5 +23,6 @@ public class CPlayManager : MonoBehaviour
     private void Awake()
     {
         rb2D = GetComponent<Rigidbody2D>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 }
