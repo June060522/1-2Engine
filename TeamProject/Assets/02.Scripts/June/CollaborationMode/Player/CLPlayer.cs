@@ -11,33 +11,53 @@ public class CLPlayer : CPlayManager
         if(transform.position.y >= 4.5f)
         {
             Hp -= 0.1f;
-            rb2D.velocity = Vector2.zero;
-            rb2D.AddForce(Vector2.down * JumpPower);
+            rb2D.AddForce(-transform.up * JumpPower);
         }
         else if(transform.position.y <= -4.5f)
         {
             Hp -= 0.1f;
-            rb2D.gravityScale = 0f;
-            rb2D.velocity = Vector2.zero;
-            rb2D.AddForce(Vector2.up * JumpPower * 8);
-            rb2D.gravityScale = 1f;
+            rb2D.AddForce(transform.up * JumpPower * 8);
+        }
+        if(transform.position.x >= 8.5f)
+        {
+            rb2D.velocity = new Vector2(0,rb2D.velocity.y);
+        }
+        else if(transform.position.x <= -8.5f)
+        {
+            rb2D.velocity = new Vector2(0,rb2D.velocity.y);
         }
 
         if (Input.GetKey(KeyCode.A))
         {
-            transform.Translate(Vector2.left * Speed * Time.deltaTime);
+            transform.Translate(Vector3.left * Speed * Time.deltaTime);
         }
         if (Input.GetKey(KeyCode.D))
         {
-            transform.Translate(Vector2.right * Speed * Time.deltaTime);
+            transform.Translate(Vector3.right * Speed * Time.deltaTime);
         }
         if (Input.GetKeyDown(KeyCode.W))
         {
-            rb2D.AddForce(Vector2.up * JumpPower,ForceMode2D.Impulse);
+            rb2D.AddForce(transform.up * JumpPower,ForceMode2D.Impulse);
         }
         if (Input.GetKeyDown(KeyCode.S))
         {
-            PoolManager.Instance.Pop(throwFood,transform.position,Quaternion.identity);
+            if (cBirdRotate.dir == Dir.right)
+            {
+                GameObject food = PoolManager.Instance.Pop(throwFood, transform.position, Quaternion.identity);
+                food.GetComponent<FoodMove>().dir = Dir.right;
+            }
+            else
+            {
+                GameObject food = PoolManager.Instance.Pop(throwFood, transform.position, Quaternion.identity);
+                food.GetComponent<FoodMove>().dir = Dir.left;
+            }
+        }
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            if(spriteRenderer.flipX == true)
+                rb2D.AddForce(Vector2.left * 3,ForceMode2D.Impulse);
+            else
+                rb2D.AddForce(Vector2.right * 3,ForceMode2D.Impulse);
         }
 
         if(Hp <= 0)
