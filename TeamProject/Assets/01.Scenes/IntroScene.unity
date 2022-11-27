@@ -1267,7 +1267,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &278429398
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2600,16 +2600,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1633444184}
-        m_TargetAssemblyTypeName: PlayButton, Assembly-CSharp
-        m_MethodName: HowtoPlayCollaboration
-        m_Mode: 1
+      - m_Target: {fileID: 1249935830}
+        m_TargetAssemblyTypeName: ChangeScene, Assembly-CSharp
+        m_MethodName: SceneChange
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: PlayScene
+          m_StringArgument: CollaborationScene
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &527381444
@@ -6087,8 +6087,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uD50C\uB808\uC774\uC5B4\uB4E4\uACFC \uD611\uB3D9\uD558\uC5EC \uC0C8\uB97C
-    \uC774\uC6A9\uD574 \uD568\uAED8 \uC0AC\uB0E5\uAFBC\uC744 \uBB3C\uB9AC\uCCD0\uBCF4\uC138\uC694!!"
+  m_text: "\uD50C\uB808\uC774\uC5B4\uB07C\uB9AC \uD611\uB3D9\uD558\uC5EC \uD568\uAED8
+    \uB3C5\uC218\uB9AC\uB97C \uBB3C\uB9AC\uCCD0\uBCF4\uC138\uC694!!"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 45b3628062f711342ae291d51dcf9696, type: 2}
   m_sharedMaterial: {fileID: 3664766830463979816, guid: 45b3628062f711342ae291d51dcf9696, type: 2}
@@ -7196,7 +7196,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1249935829}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.6519156, y: 0.23345813, z: -10.017115}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
