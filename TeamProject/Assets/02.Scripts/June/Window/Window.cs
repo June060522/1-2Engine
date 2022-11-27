@@ -53,7 +53,6 @@ public class Window : MonoBehaviour
             {
                 rPlayer.BirdFood = rPlayer.maxFood;
             }
-            boxCollider2D.enabled = false;
         }
         else if(Hp <= 10)
         {

@@ -11,8 +11,8 @@ public class Bird : MonoBehaviour, IBird
     public float needFood = 1f;
     public Team team = Team.right;
     [SerializeField] protected int hp = 1;
-    LPlayer lPlayer;
-    RPlayer rPlayer;
+    protected LPlayer lPlayer;
+    protected RPlayer rPlayer;
     private int Hp = 0;
     protected float time = 0f;
     [SerializeField] protected GameObject FightImage;
