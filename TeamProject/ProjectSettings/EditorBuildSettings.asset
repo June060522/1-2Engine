@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/01.Scenes/ModeScene1.unity
     guid: 022a74358cb9fe442acd491f967e3f45
+  - enabled: 1
+    path: Assets/01.Scenes/CollaborationScene.unity
+    guid: bc45a60eee2ed9143a9b58552f427319
   m_configObjects: {}

@@ -1,0 +1,27 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class BossManager : MonoBehaviour , IBoss
+{
+    [SerializeField] float hp;
+    public float Hp{get => hp; set => hp = value;}
+
+    [SerializeField] float power;
+    public float Power{get => power; set => power = value;}
+    
+    public void IAttack(GameObject target, float attackDelay)
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public void IMove(Vector2 dir, float speed)
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public void IOnDamage(float damage)
+    {
+        throw new System.NotImplementedException();
+    }
+}
