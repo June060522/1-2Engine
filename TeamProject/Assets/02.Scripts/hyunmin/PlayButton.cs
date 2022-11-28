@@ -20,9 +20,11 @@ public class PlayButton : MonoBehaviour
     public GameObject DifficultyPanel;
     public GameObject BirdCollaborationPanel;
     public GameObject BirdBasicPanel;
+    public AudioClip clickClip;
 
     public void ModChoose()
     {
+        EffectAudio.instance.ListenEff(clickClip);
         Modpanel.SetActive(true);
         Modpanel.transform.DOScale(new Vector3(0,0,0),0);
         Modpanel.transform.DOScale(new Vector3(1f,1f,1f),0.5f).SetEase(Ease.OutBack);
@@ -40,6 +42,7 @@ public class PlayButton : MonoBehaviour
 
     public void Setting()
     {
+        EffectAudio.instance.ListenEff(clickClip);
         Settingpanel.SetActive(true);
         Settingpanel.transform.DOScale(new Vector3(0,0,0),0);
         Settingpanel.transform.DOScale(new Vector3(1f,1f,1f),0.5f).SetEase(Ease.OutBack);
@@ -47,6 +50,7 @@ public class PlayButton : MonoBehaviour
 
     public void NameSetting()
     {
+        EffectAudio.instance.ListenEff(clickClip);
         NameSettingPanel.SetActive(true);
         NameSettingPanel.transform.DOScale(new Vector3(1,1,1),0);
         Settingpanel.SetActive(false);
@@ -54,19 +58,21 @@ public class PlayButton : MonoBehaviour
 
     public void OK()
     {
+        EffectAudio.instance.ListenEff(clickClip);
         NameSettingPanel.SetActive(false);
         Settingpanel.SetActive(true);
     }
 
     public void basicExplanation()
     {
+        EffectAudio.instance.ListenEff(clickClip);
         HowtoPlayBasicpanel.SetActive(true);
         BasicPanel.SetActive(false);
     }
 
     public void CollaborationExplanation()
     {
-        
+        EffectAudio.instance.ListenEff(clickClip);
         HowtoPlayCollaborationPanel.SetActive(true);
         CollaborationPanel.SetActive(false);
     }
@@ -74,18 +80,21 @@ public class PlayButton : MonoBehaviour
     //��� ���۹� ����
     public void HTPBasic() 
     {
+        EffectAudio.instance.ListenEff(clickClip);
         HowtoPlayBasicpanel.SetActive(false);
         BasicPanel.SetActive(true);
     }
 
     public void HTPCollaboration()
     {
+        EffectAudio.instance.ListenEff(clickClip);
         HowtoPlayCollaborationPanel.SetActive(false);
         CollaborationPanel.SetActive(true);
     }
 
     public void BirdbasicPanel()
     {
+        EffectAudio.instance.ListenEff(clickClip);
         BirdBasicPanel.SetActive(true);
         BasicPanel.SetActive(false);
         //Modpanel.SetActive(false);
@@ -94,6 +103,7 @@ public class PlayButton : MonoBehaviour
 
     public void BackBirdbasicPanel()
     {
+        EffectAudio.instance.ListenEff(clickClip);
         BirdBasicPanel.SetActive(false);
         BasicPanel.SetActive(false);
         HowtoPlayBasicpanel.SetActive(true);
@@ -101,6 +111,7 @@ public class PlayButton : MonoBehaviour
 
     public void BirdcollaborationPanel()
     {
+        EffectAudio.instance.ListenEff(clickClip);
         BirdCollaborationPanel.SetActive(true);
         CollaborationPanel.SetActive (false);
         HowtoPlayCollaborationPanel.SetActive(false);
@@ -108,6 +119,7 @@ public class PlayButton : MonoBehaviour
 
     public void BackBirdcollaborationPanel()
     {
+        EffectAudio.instance.ListenEff(clickClip);
         BirdCollaborationPanel.SetActive(false);
         CollaborationPanel.SetActive(false);
         HowtoPlayCollaborationPanel.SetActive(true);
@@ -115,6 +127,7 @@ public class PlayButton : MonoBehaviour
 
     public void collaborationMod()
     {
+        EffectAudio.instance.ListenEff(clickClip);
         DifficultyPanel.SetActive(true);
     }
 
@@ -127,6 +140,7 @@ public class PlayButton : MonoBehaviour
 */
     public void HowtoPlayCollaboration()
     {
+        EffectAudio.instance.ListenEff(clickClip);
         HowtoPlayCollaborationPanel.transform.DOScale(new Vector3(0,0,0),0);
         HowtoPlayCollaborationPanel.transform.DOScale(new Vector3(1f,1f,1f),0.5f).SetEase(Ease.OutBack);
         HowtoPlayCollaborationPanel.SetActive(true);
@@ -170,6 +184,7 @@ public class PlayButton : MonoBehaviour
 
     public void SounSetting()
     {
+        EffectAudio.instance.ListenEff(clickClip);
         Soundpanel.SetActive(true);
         Soundpanel.transform.DOScale(new Vector3(1f,1f,1f),0);
         Settingpanel.SetActive(false);
@@ -178,6 +193,7 @@ public class PlayButton : MonoBehaviour
     //��� ����
     public void BasicpanelExplanation() 
     {
+        EffectAudio.instance.ListenEff(clickClip);
         HowtoPlayCollaborationPanel.transform.DOScale(new Vector3(0,0,0),0);
         HowtoPlayCollaborationPanel.transform.DOScale(new Vector3(1f,1f,1f),0.5f).SetEase(Ease.OutBack);
         BasicPanel.SetActive(true);
@@ -190,6 +206,7 @@ public class PlayButton : MonoBehaviour
 
     public void CollaborationpanelExplanation()
     {
+        EffectAudio.instance.ListenEff(clickClip);
         CollaborationPanel.SetActive(true);
         //ExPlain.SetActive(true);
     }
