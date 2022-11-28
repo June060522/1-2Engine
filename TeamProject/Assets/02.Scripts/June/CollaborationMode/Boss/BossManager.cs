@@ -13,6 +13,7 @@ public class BossManager : MonoBehaviour , IBoss
     [SerializeField] protected CLPlayer cLPlayer;
     [SerializeField] protected CRPlayer cRPlayer;
     [SerializeField] protected TurnObject turnObject;
+    [SerializeField] protected GameObject attack;
 
     protected GameObject target = null;
     protected float x;

@@ -9,7 +9,11 @@ public class EasyBoss : BossManager
     private void Start()
     {
         x = transform.position.x;
-        StartCoroutine(PatternStart());
+    }
+    private void OnEnable()
+    {
+        transform.DOMove(new Vector3(5.51f,-0.46f),3f)
+        .OnComplete(() => StartCoroutine(PatternStart()));
     }
     void Update()
     {
@@ -40,8 +44,10 @@ public class EasyBoss : BossManager
     {
         while (true)
         {
-            pattern = Random.Range(0, 2);
+            pattern = Random.Range(0, 1);
 
+            float random = Random.Range(-15, 15);
+            turnObject.Turning(random);
             switch (pattern)
             {
                 case 0:
@@ -49,13 +55,9 @@ public class EasyBoss : BossManager
                     float y = Random.Range(-4.5f, 4.5f);
                     transform.DOMove(new Vector2(x, y), 3f);
                     break;
-                case 1:
-                    float random = Random.Range(-30,30);
-                    turnObject.Turning(random);
-                    break;
             }
 
-            yield return new WaitForSeconds(12f);
+            yield return new WaitForSeconds(10f);
         }
     }
 }
