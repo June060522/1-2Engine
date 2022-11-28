@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using DG.Tweening;
 
-public class NormalBoss : BossManager
+public class HardBoss : BossManager
 {
     private void Start()
     {
@@ -44,7 +44,7 @@ public class NormalBoss : BossManager
     {
         while (true)
         {
-            pattern = Random.Range(0, 2);
+            pattern = Random.Range(0, 4);
             float index = Random.Range(0, 2);
             if (index == 0)
             {
@@ -68,19 +68,39 @@ public class NormalBoss : BossManager
                     target = GameObject.Find("LPlayer");
                 }
             }
-            float random = Random.Range(-60, 60);
+            float random = Random.Range(-120, 120);
             turnObject.Turning(random);
             switch (pattern)
             {
                 case 0:
-                    float x = Random.Range(target.transform.position.x - 2 > -8.5 ? target.transform.position.x - 2 : -8.5f
-                    , target.transform.position.x + 2 < 8.5 ? target.transform.position.x + 2 : 8.5f);
-                    float y = Random.Range(target.transform.position.y - 1 > -4.5 ? target.transform.position.y - 1 : -4.5f
-                    , target.transform.position.y - 1 > -4.5 ? target.transform.position.y - 1 : -4.5f);
-                    transform.DOMove(new Vector2(x, y), 2.6f);
-                    PoolManager.Instance.Pop(attack,transform.position,Quaternion.Euler(0,0,transform.rotation.z));
+                    float x = Random.Range(target.transform.position.x - 1 > -8.5 ? target.transform.position.x - 1 : -8.5f
+                    , target.transform.position.x + 1 < 8.5 ? target.transform.position.x + 1 : 8.5f);
+                    float y = Random.Range(target.transform.position.y - 0.5f > -4.5 ? target.transform.position.y - 0.5f : -4.5f
+                    , target.transform.position.y - 0.5f > -4.5 ? target.transform.position.y - 0.5f : -4.5f);
+                    transform.DOMove(new Vector2(x, y), 2.3f);
+                    for(int i = -60; i <= 60; i+= 60)
+                        PoolManager.Instance.Pop(attack,transform.position,Quaternion.Euler(0,0,transform.rotation.z + i));
                     break;
                 case 1:
+                    cLPlayer.w = KeyCode.S;
+                    cLPlayer.s = KeyCode.W;
+                    cLPlayer.a = KeyCode.D;
+                    cLPlayer.d = KeyCode.A;
+                    cRPlayer.up = KeyCode.DownArrow;
+                    cRPlayer.down = KeyCode.UpArrow;
+                    cRPlayer.left = KeyCode.RightArrow;
+                    cRPlayer.right = KeyCode.LeftArrow;
+                    yield return new WaitForSeconds(3f);
+                    cLPlayer.w = KeyCode.W;
+                    cLPlayer.s = KeyCode.S;
+                    cLPlayer.a = KeyCode.A;
+                    cLPlayer.d = KeyCode.D;
+                    cRPlayer.up = KeyCode.UpArrow;
+                    cRPlayer.down = KeyCode.DownArrow;
+                    cRPlayer.left = KeyCode.LeftArrow;
+                    cRPlayer.right = KeyCode.RightArrow;
+                    break;
+                case 2:
                     time = 0;
                     while (time < 3)
                     {
@@ -90,9 +110,17 @@ public class NormalBoss : BossManager
                         yield return new WaitForSeconds(0.01f);
                     }
                     break;
+                case 3:
+                    for(int i = 0; i <= 360; i+= 60)
+                        PoolManager.Instance.Pop(attack,transform.position,Quaternion.Euler(0,0,transform.rotation.z + i));
+                    yield return new WaitForSeconds(1f);
+                    for(int i = 0; i <= 360; i+= 60)
+                        PoolManager.Instance.Pop(attack,transform.position,Quaternion.Euler(0,0,transform.rotation.z + i + 30));
+                    break;
+
             }
 
-            yield return new WaitForSeconds(7f);
+            yield return new WaitForSeconds(4f);
         }
     }
 }
