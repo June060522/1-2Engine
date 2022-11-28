@@ -12,7 +12,7 @@ public class CRPlayer : CPlayManager
         {
             Hp -= 0.1f;
             rb2D.velocity = Vector2.zero;
-            rb2D.AddForce(Vector2.down * JumpPower);
+            rb2D.AddForce(Vector2.down * JumpPower * 8);
         }
         else if(transform.position.y <= -4.5f)
         {
@@ -22,11 +22,15 @@ public class CRPlayer : CPlayManager
         }
         if(transform.position.x >= 8.5f)
         {
-            rb2D.velocity = new Vector2(0,rb2D.velocity.y);
+            Hp -= 0.1f;
+            rb2D.velocity = Vector2.zero;
+            rb2D.AddForce(Vector2.left * JumpPower * 8);
         }
         else if(transform.position.x <= -8.5f)
         {
-            rb2D.velocity = new Vector2(0,rb2D.velocity.y);
+            Hp -= 0.1f;
+            rb2D.velocity = Vector2.zero;
+            rb2D.AddForce(Vector2.right * JumpPower * 8);
         }
 
         if (Input.GetKey(KeyCode.RightArrow))
@@ -39,7 +43,7 @@ public class CRPlayer : CPlayManager
         }
         if (Input.GetKeyDown(KeyCode.UpArrow))
         {
-            StartCoroutine(Jump());
+            rb2D.AddForce(transform.up * JumpPower,ForceMode2D.Impulse);
         }
         if (Input.GetKeyDown(KeyCode.DownArrow))
         {
@@ -65,16 +69,6 @@ public class CRPlayer : CPlayManager
         if(Hp <= 0)
         {
             gameObject.SetActive(false);
-        }
-    }
-    IEnumerator Jump()
-    {
-        int i = 0;
-        while(i < JumpPower)
-        {
-            i++;
-            transform.Translate(new Vector3(0,transform.position.y + JumpPower,0)* JumpPower * Time.deltaTime);
-            yield return new WaitForSeconds(0.01f);
         }
     }
 }

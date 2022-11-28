@@ -24,19 +24,17 @@ public class CBirdRotate : MonoBehaviour
     {
         x = transform.position.x;
     }
-    void Update()
+    void FixedUpdate()
     {
         if(x > transform.position.x && spriteRenderer.flipX == false)
         {
             dir = Dir.left;
             spriteRenderer.flipX = true;
-            rb2D.velocity = new Vector2(0,rb2D.velocity.y);
         }
         else if(x < transform.position.x && spriteRenderer.flipX == true)
         {
             dir = Dir.right;
             spriteRenderer.flipX = false;
-            rb2D.velocity = new Vector2(0,rb2D.velocity.y);
         }
 
         x = transform.position.x;
