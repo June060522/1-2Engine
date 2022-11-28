@@ -5,11 +5,13 @@ using UnityEngine;
 public class PlayOrPause : MonoBehaviour
 {
     private bool isPause = false;
+    public GameObject Explain;
 
     private void Update()
     {
         if(Input.GetKeyDown(KeyCode.Escape))
         {
+            Explain.SetActive(true);
             if(!isPause)
             {
                 StartCoroutine(Click());
@@ -27,8 +29,16 @@ public class PlayOrPause : MonoBehaviour
 
         yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Escape));
 
+        
         Time.timeScale = 1f;
         isPause = false;
         Debug.Log("play");
     }
+
+    public void Xbutton()
+    {
+        Explain.SetActive(false);
+    }
+
+    public void 
 }
