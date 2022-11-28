@@ -12,12 +12,14 @@ public class PlayButton : MonoBehaviour
     public GameObject Settingpanel;
     public GameObject HowtoPlayBasicpanel;
     public GameObject HowtoPlayCollaborationPanel;
-    public GameObject HowtoDefencePanel;
     public GameObject Soundpanel;
     public GameObject BasicPanel;
-    public GameObject DefencePanel;
+    public GameObject ExPlain;
     public GameObject CollaborationPanel;
     public GameObject NameSettingPanel;
+    public GameObject DifficultyPanel;
+    public GameObject BirdCollaborationPanel;
+    public GameObject BirdBasicPanel;
 
     public void ModChoose()
     {
@@ -64,6 +66,7 @@ public class PlayButton : MonoBehaviour
 
     public void CollaborationExplanation()
     {
+        
         HowtoPlayCollaborationPanel.SetActive(true);
         CollaborationPanel.SetActive(false);
     }
@@ -81,19 +84,47 @@ public class PlayButton : MonoBehaviour
         CollaborationPanel.SetActive(true);
     }
 
-    public void HTPDefence()
+    public void BirdbasicPanel()
     {
-        HowtoDefencePanel.SetActive(false);
-        DefencePanel.SetActive(true);
+        BirdBasicPanel.SetActive(true);
+        BasicPanel.SetActive(false);
+        //Modpanel.SetActive(false);
+        HowtoPlayBasicpanel.SetActive(false);
     }
 
-    public void HowtoPlayDefence()
+    public void BackBirdbasicPanel()
+    {
+        BirdBasicPanel.SetActive(false);
+        BasicPanel.SetActive(false);
+        HowtoPlayBasicpanel.SetActive(true);
+    }
+
+    public void BirdcollaborationPanel()
+    {
+        BirdCollaborationPanel.SetActive(true);
+        CollaborationPanel.SetActive (false);
+        HowtoPlayCollaborationPanel.SetActive(false);
+    }
+
+    public void BackBirdcollaborationPanel()
+    {
+        BirdCollaborationPanel.SetActive(false);
+        CollaborationPanel.SetActive(false);
+        HowtoPlayCollaborationPanel.SetActive(true);
+    }
+
+    public void collaborationMod()
+    {
+        DifficultyPanel.SetActive(true);
+    }
+
+/*    public void HowtoPlayDefence()
     {
         HowtoDefencePanel.transform.DOScale(new Vector3(0,0,0),0);
         HowtoDefencePanel.transform.DOScale(new Vector3(1f,1f,1f),0.5f).SetEase(Ease.OutBack);
         HowtoDefencePanel.SetActive(true);
     }
-
+*/
     public void HowtoPlayCollaboration()
     {
         HowtoPlayCollaborationPanel.transform.DOScale(new Vector3(0,0,0),0);
@@ -128,8 +159,13 @@ public class PlayButton : MonoBehaviour
     public void SmallXButton()
     {
         BasicPanel.SetActive(false);
-        DefencePanel.SetActive(false);
+        //DefencePanel.SetActive(false);
         CollaborationPanel.SetActive(false);
+        DifficultyPanel.SetActive(false);
+        BirdBasicPanel.SetActive(false);
+        BirdCollaborationPanel.SetActive(false);
+        HowtoPlayBasicpanel.SetActive(false);
+        HowtoPlayCollaborationPanel.SetActive(false);
     }
 
     public void SounSetting()
@@ -147,14 +183,15 @@ public class PlayButton : MonoBehaviour
         BasicPanel.SetActive(true);
     }
 
-    public void DefencepanelExplanation()
+   /* public void DefencepanelExplanation()
     {
         DefencePanel.SetActive(true);
-    }
+    }*/
 
     public void CollaborationpanelExplanation()
     {
         CollaborationPanel.SetActive(true);
+        //ExPlain.SetActive(true);
     }
 
 }
