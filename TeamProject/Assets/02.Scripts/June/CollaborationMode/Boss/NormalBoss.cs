@@ -12,6 +12,7 @@ public class NormalBoss : BossManager
     }
     private void OnEnable()
     {
+        EffectAudio.Instance.ListenEff(wing);
         transform.DOMove(new Vector3(5.51f,-0.46f),3f)
         .OnComplete(() => StartCoroutine(PatternStart()));
     }
@@ -19,13 +20,13 @@ public class NormalBoss : BossManager
     {
         if (Hp <= 0)
         {
-            PlayerPrefs.SetString("WinnerName", "Easy Stage Clear!!");
+            PlayerPrefs.SetString("WinnerName", "Normal Stage Clear!!");
             SceneManager.LoadScene("EndScene");
         }
 
         if (cLPlayer.Hp <= 0 && cRPlayer.Hp <= 0)
         {
-            PlayerPrefs.SetString("WinnerName", "Easy Stage Fail..");
+            PlayerPrefs.SetString("WinnerName", "Normal Stage Fail..");
             SceneManager.LoadScene("EndScene");
         }
 
@@ -42,6 +43,7 @@ public class NormalBoss : BossManager
     }
     IEnumerator PatternStart()
     {
+        EffectAudio.Instance.ListenEff(wing);
         while (true)
         {
             pattern = Random.Range(0, 2);
@@ -86,7 +88,7 @@ public class NormalBoss : BossManager
                     {
                         time += Time.deltaTime;
                         Vector2 dir = target.transform.position - transform.position;
-                        transform.Translate(dir.normalized * Time.deltaTime);
+                        transform.Translate(dir.normalized * 3 *Time.deltaTime);
                         yield return new WaitForSeconds(0.01f);
                     }
                     break;

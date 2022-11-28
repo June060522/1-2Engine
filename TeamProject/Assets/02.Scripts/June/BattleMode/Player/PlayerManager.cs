@@ -9,6 +9,7 @@ public class PlayerManager : MonoBehaviour, ISummon
     {
         if((birdType == BirdType.Small)? BirdFood >= bird.GetComponent<Bird>().needFood : BirdFood * 2 >= bird.GetComponent<Bird>().needFood)
         {
+            EffectAudio.Instance.ListenEff(summonClip);
             bird = PoolManager.Instance.Pop(bird, pos, rotation);
             Bird B = bird.GetComponent<Bird>();
             B.team = team;
@@ -33,6 +34,7 @@ public class PlayerManager : MonoBehaviour, ISummon
     [SerializeField] protected GameObject[] window;
     [SerializeField] protected GameObject[] birds;
     [SerializeField] protected GameObject[] showBird;
+    [SerializeField] protected AudioClip summonClip;
 
     private Window[] windowS = new Window[3];
 
@@ -84,7 +86,7 @@ public class PlayerManager : MonoBehaviour, ISummon
         }
 
         Hp = 30f;
-        BirdFood = 50;
+        BirdFood = 200;
         maxFood = BirdFood;
     }
 

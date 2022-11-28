@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 6787598704371542402}
   - component: {fileID: 886595190585880998}
   - component: {fileID: 1020194862360141622}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: EagleAttack
-  m_TagString: Untagged
+  m_TagString: aaaaaaaa
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

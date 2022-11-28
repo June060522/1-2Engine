@@ -7,14 +7,15 @@ TagManager:
   - Bird
   - Window
   - Boss
+  - aaaaaaaa
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - eagle
   - Water
   - UI
-  - 
+  - boss
   - 
   - 
   - 

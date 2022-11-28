@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayOrPause : MonoBehaviour
 {
@@ -23,22 +24,27 @@ public class PlayOrPause : MonoBehaviour
     {
         Time.timeScale = 0f;
         isPause = true;
-        Debug.Log("stop");
 
         yield return null;
 
-        yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Escape));
+        yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Escape) || isPause == false);
 
         
         Time.timeScale = 1f;
+        Explain.SetActive(false);
         isPause = false;
-        Debug.Log("play");
     }
 
     public void Xbutton()
     {
+        Time.timeScale = 1f;
         Explain.SetActive(false);
+        isPause = false;
     }
 
-    public void 
+    public void Lobby()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("IntroScene");
+    }
 }

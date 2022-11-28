@@ -28,7 +28,7 @@ public class LongBird : Bird
         if (!canMove)
         {
             time += Time.deltaTime;
-            if (time >= 1f)
+            if (time >= 1.3f)
             {
                 canMove = true;
             }
@@ -49,7 +49,10 @@ public class LongBird : Bird
                 PoolManager.Instance.Push(other.gameObject);
 
             if(team == Team.right)
-            PoolManager.Instance.Pop(FightImage,transform.position,Quaternion.identity);
+            {
+                PoolManager.Instance.Pop(FightImage,transform.position,Quaternion.identity);
+                EffectAudio.Instance.ListenEff(fightClip);
+            }
         }
 
         if (other.CompareTag("Window"))

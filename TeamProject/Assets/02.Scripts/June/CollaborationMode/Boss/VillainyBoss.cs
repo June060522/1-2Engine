@@ -12,20 +12,21 @@ public class VillainyBoss : BossManager
     }
     private void OnEnable()
     {
-        transform.DOMove(new Vector3(5.51f,-0.46f),3f)
+        EffectAudio.Instance.ListenEff(wing);
+        transform.DOMove(new Vector3(5.51f, -0.46f), 3f)
         .OnComplete(() => StartCoroutine(PatternStart()));
     }
     void Update()
     {
         if (Hp <= 0)
         {
-            PlayerPrefs.SetString("WinnerName", "Easy Stage Clear!!");
+            PlayerPrefs.SetString("WinnerName", "Villainy Stage Clear!!");
             SceneManager.LoadScene("EndScene");
         }
 
         if (cLPlayer.Hp <= 0 && cRPlayer.Hp <= 0)
         {
-            PlayerPrefs.SetString("WinnerName", "Easy Stage Fail..");
+            PlayerPrefs.SetString("WinnerName", "Villainy Stage Fail..");
             SceneManager.LoadScene("EndScene");
         }
 
@@ -42,9 +43,10 @@ public class VillainyBoss : BossManager
     }
     IEnumerator PatternStart()
     {
+        EffectAudio.Instance.ListenEff(wing);
         while (true)
         {
-            pattern = Random.Range(0, 5);
+            pattern = Random.Range(0, 4);
             float index = Random.Range(0, 2);
             if (index == 0)
             {
@@ -70,6 +72,7 @@ public class VillainyBoss : BossManager
             }
             float random = Random.Range(-360, 360);
             turnObject.Turning(random);
+            yield return null;
             switch (pattern)
             {
                 case 0:
@@ -111,39 +114,53 @@ public class VillainyBoss : BossManager
                     }
                     break;
                 case 3:
-                    for (int i = 0; i <= 360; i += 45)
-                        PoolManager.Instance.Pop(attack, transform.position, Quaternion.Euler(0, 0, transform.rotation.z + i));
-                    yield return new WaitForSeconds(1f);
-                    for (int i = 0; i <= 360; i += 45)
-                        PoolManager.Instance.Pop(attack, transform.position, Quaternion.Euler(0, 0, transform.rotation.z + i + 22.5f));
+                        PoolManager.Instance.Pop(attack, transform.position, Quaternion.Euler(0, 0, transform.rotation.z + 45));
+                        yield return new WaitForSeconds(0.3f);
+                        PoolManager.Instance.Pop(attack, transform.position, Quaternion.Euler(0, 0, transform.rotation.z + 90));
+                        yield return new WaitForSeconds(0.3f);
+                        PoolManager.Instance.Pop(attack, transform.position, Quaternion.Euler(0, 0, transform.rotation.z + 135));
+                        yield return new WaitForSeconds(0.3f);
+                        PoolManager.Instance.Pop(attack, transform.position, Quaternion.Euler(0, 0, transform.rotation.z + 180));
+                        yield return new WaitForSeconds(0.3f);
+                        PoolManager.Instance.Pop(attack, transform.position, Quaternion.Euler(0, 0, transform.rotation.z + 225));
+                        yield return new WaitForSeconds(0.3f);
+                        PoolManager.Instance.Pop(attack, transform.position, Quaternion.Euler(0, 0, transform.rotation.z + 270));
+                        yield return new WaitForSeconds(0.3f);
+                        PoolManager.Instance.Pop(attack, transform.position, Quaternion.Euler(0, 0, transform.rotation.z + 315));
+                        yield return new WaitForSeconds(0.3f);
+                        PoolManager.Instance.Pop(attack, transform.position, Quaternion.Euler(0, 0, transform.rotation.z + 0));
+                        yield return new WaitForSeconds(0.3f);
                     break;
                 case 4:
-                    turnObject.Turning(360f);
-                    yield return new WaitForSeconds(1.5f);
-                    float sapwnindex = Random.Range(0, 4);
-                    switch (sapwnindex)
+                    for(int j = 0; j <2; j++)
                     {
-                        case 0:
-                            for (int i = -2; i <= 2; i++)
-                                PoolManager.Instance.Pop(attack, new Vector3(8.5f,4.5f + i), Quaternion.Euler(0, 0, -45));
-                            break;
-                        case 1:
-                            for (int i = -2; i < 2; i++)
-                                PoolManager.Instance.Pop(attack, new Vector3(-8.5f,4.5f + i), Quaternion.Euler(0, 0, 45));
-                            break;
-                        case 2:
-                            for (int i = -2; i < 2; i++)
-                                PoolManager.Instance.Pop(attack, new Vector3(8.5f,-4.5f + i), Quaternion.Euler(0, 0, -115));
-                            break;
-                        case 3:
-                            for (int i = -2; i < 2; i++)
-                                PoolManager.Instance.Pop(attack, new Vector3(-8.5f,-4.5f + i), Quaternion.Euler(0, 0, 115));
-                            break;
+                        float sapwnindex = Random.Range(0, 4);
+                        switch (sapwnindex)
+                        {
+                            case 0:
+                                for (int i = -2; i <= 2; i++)
+                                    PoolManager.Instance.Pop(attack, new Vector3(8.5f, 4.5f + i), Quaternion.Euler(0, 0, -45));
+                                break;
+                            case 1:
+                                for (int i = -2; i < 2; i++)
+                                    PoolManager.Instance.Pop(attack, new Vector3(-8.5f, 4.5f + i), Quaternion.Euler(0, 0, 45));
+                                break;
+                            case 2:
+                                for (int i = -2; i < 2; i++)
+                                    PoolManager.Instance.Pop(attack, new Vector3(8.5f, -4.5f + i), Quaternion.Euler(0, 0, -115));
+                                break;
+                            case 3:
+                                for (int i = -2; i < 2; i++)
+                                    PoolManager.Instance.Pop(attack, new Vector3(-8.5f, -4.5f + i), Quaternion.Euler(0, 0, 115));
+                                break;
+                        }
+                        yield return new WaitForSeconds(1f);
                     }
+                    turnObject.Turning(360f);
                     break;
             }
 
-            yield return new WaitForSeconds(4f);
+            yield return new WaitForSeconds(5f);
         }
     }
 }

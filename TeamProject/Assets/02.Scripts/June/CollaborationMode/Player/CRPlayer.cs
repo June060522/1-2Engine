@@ -15,24 +15,28 @@ public class CRPlayer : CPlayManager
         if (transform.position.y >= 4.5f)
         {
             Hp -= 0.1f;
+            EffectAudio.Instance.ListenEff(rightClip);
             rb2D.velocity = Vector2.zero;
             rb2D.AddForce(Vector2.down * JumpPower * 8);
         }
         else if (transform.position.y <= -4.5f)
         {
             Hp -= 0.1f;
+            EffectAudio.Instance.ListenEff(rightClip);
             rb2D.velocity = Vector2.zero;
             rb2D.AddForce(Vector2.up * JumpPower * 8);
         }
         if (transform.position.x >= 8.5f)
         {
             Hp -= 0.1f;
+            EffectAudio.Instance.ListenEff(rightClip);
             rb2D.velocity = Vector2.zero;
             rb2D.AddForce(Vector2.left * JumpPower * 8);
         }
         else if (transform.position.x <= -8.5f)
         {
             Hp -= 0.1f;
+            EffectAudio.Instance.ListenEff(rightClip);
             rb2D.velocity = Vector2.zero;
             rb2D.AddForce(Vector2.right * JumpPower * 8);
         }
@@ -53,11 +57,13 @@ public class CRPlayer : CPlayManager
         {
             if (cBirdRotate.dir == Dir.right)
             {
+                EffectAudio.Instance.ListenEff(attackClip);
                 GameObject food = PoolManager.Instance.Pop(throwFood, transform.position, Quaternion.identity);
                 food.GetComponent<FoodMove>().dir = Dir.right;
             }
             else
             {
+                EffectAudio.Instance.ListenEff(attackClip);
                 GameObject food = PoolManager.Instance.Pop(throwFood, transform.position, Quaternion.identity);
                 food.GetComponent<FoodMove>().dir = Dir.left;
             }

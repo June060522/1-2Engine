@@ -5,7 +5,7 @@ using UnityEngine;
 public class FastBird : Bird
 {
     [SerializeField] private float power;
-    
+
     private void Update()
     {
         if (team == Team.right)
@@ -18,22 +18,22 @@ public class FastBird : Bird
         }
         if (canMove)
         {
-            if(team == Team.right)
+            if (team == Team.right)
                 IMove(-dir, speed);
             else
-                IMove(dir,speed);
+                IMove(dir, speed);
 
         }
 
         if (!canMove)
         {
             time += Time.deltaTime;
-            if (time >= 1f)
+            if (time >= 1.3f)
             {
                 canMove = true;
             }
         }
-        if(hp <= 0)
+        if (hp <= 0)
             PoolManager.Instance.Push(this.gameObject);
     }
 
@@ -44,8 +44,11 @@ public class FastBird : Bird
             time = 0f;
             IFight(other.GetComponent<Bird>().birdSize);
 
-            if(team == Team.right)
-            PoolManager.Instance.Pop(FightImage,transform.position,Quaternion.identity);
+            if (team == Team.right)
+            {
+                PoolManager.Instance.Pop(FightImage, transform.position, Quaternion.identity);
+                EffectAudio.Instance.ListenEff(fightClip);
+            }
         }
 
         if (other.CompareTag("Window"))
@@ -56,13 +59,13 @@ public class FastBird : Bird
                 window.Damage(power);
                 PoolManager.Instance.Push(this.gameObject);
             }
-            else if(window.team != team && window.Hp <= 0)
+            else if (window.team != team && window.Hp <= 0)
             {
-                if(team == Team.right)
+                if (team == Team.right)
                 {
                     lPlayer.Hp -= power;
                 }
-                else if(team == Team.left)
+                else if (team == Team.left)
                 {
                     rPlayer.Hp -= power;
                 }

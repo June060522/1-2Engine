@@ -47,8 +47,6 @@ public class LPlayer : PlayerManager
             }
         }
 
-        if(Input.GetKeyDown(KeyCode.P))
-            Hp -= 1;
         if(Hp <= 0 && !GameOver)
         {
             GameOver = true;

@@ -6,6 +6,8 @@ public class CPlayManager : MonoBehaviour
 {
     [SerializeField] protected GameObject throwFood;
     [SerializeField] protected CBirdRotate cBirdRotate;
+    [SerializeField] protected AudioClip attackClip;
+    [SerializeField] protected AudioClip rightClip;
 
     [SerializeField] float hp;
     public float Hp{get => hp; set => hp = value;}

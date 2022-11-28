@@ -139,6 +139,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dir: 1
+  hit: {fileID: 8300000, guid: 322256a40eb85624c8a9788c42ddc2dc, type: 3}
 --- !u!50 &-1067412645735197836
 Rigidbody2D:
   serializedVersion: 4

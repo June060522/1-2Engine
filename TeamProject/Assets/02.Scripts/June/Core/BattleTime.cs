@@ -23,8 +23,6 @@ public class BattleTime : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Tab))
-            playTime -= 15f;
         if(lPlayer.Hp > 0 && rPlayer.Hp > 0)
         {
             playTime -= Time.deltaTime;

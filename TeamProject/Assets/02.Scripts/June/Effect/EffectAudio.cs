@@ -10,10 +10,10 @@ public class EffectAudio : MonoBehaviour
 
     private float effVol = 1f;
 
-    public static EffectAudio instance;
+    public static EffectAudio Instance;
     void Awake()
     {
-        EffectAudio.instance = this;
+        EffectAudio.Instance = this;
     }
     void Start()
     {

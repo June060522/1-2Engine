@@ -49,8 +49,6 @@ public class RPlayer : PlayerManager
             }
         }
 
-        if(Input.GetKeyDown(KeyCode.O))
-            Hp -=1;
         if(Hp <= 0 && !GameOver)
         {
             GameOver = true;

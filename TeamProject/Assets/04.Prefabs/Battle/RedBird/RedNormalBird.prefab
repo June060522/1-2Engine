@@ -106,6 +106,7 @@ MonoBehaviour:
   team: 2
   hp: 1
   FightImage: {fileID: 5490590238014746158, guid: 14667b71d6bcaad4caaae9eb1eb23e11, type: 3}
+  fightClip: {fileID: 8300000, guid: a8d2823cfa8de0840a19789f971c3d99, type: 3}
   power: 1
 --- !u!61 &1954544327
 BoxCollider2D:

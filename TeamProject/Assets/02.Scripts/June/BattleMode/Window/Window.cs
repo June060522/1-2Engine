@@ -18,6 +18,7 @@ public class Window : MonoBehaviour
 
     [SerializeField] RPlayer rPlayer;
     [SerializeField] LPlayer lPlayer;
+    [SerializeField] AudioClip bronkwnClip;
 
     private void Awake()
     {
@@ -32,6 +33,7 @@ public class Window : MonoBehaviour
 
     IEnumerator OnDamage(float damage)
     {
+        EffectAudio.Instance.ListenEff(bronkwnClip);
         float returnDamage = 0;
         float yieldDamage = 0;
         while(returnDamage <= damage)

@@ -12,6 +12,7 @@ public class EasyBoss : BossManager
     }
     private void OnEnable()
     {
+        EffectAudio.Instance.ListenEff(wing);
         transform.DOMove(new Vector3(5.51f,-0.46f),3f)
         .OnComplete(() => StartCoroutine(PatternStart()));
     }
@@ -44,6 +45,7 @@ public class EasyBoss : BossManager
     {
         while (true)
         {
+            EffectAudio.Instance.ListenEff(wing);
             pattern = Random.Range(0, 1);
 
             float random = Random.Range(-15, 15);

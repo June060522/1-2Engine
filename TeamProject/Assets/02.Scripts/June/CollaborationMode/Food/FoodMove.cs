@@ -7,6 +7,7 @@ public class FoodMove : MonoBehaviour
     public Dir dir = Dir.left;
     Rigidbody2D rb2D;
     private bool check = false;
+    [SerializeField] protected AudioClip hit;
     private void Awake()
     {
         rb2D = GetComponent<Rigidbody2D>();
@@ -34,6 +35,7 @@ public class FoodMove : MonoBehaviour
     {
         if (other.CompareTag("Boss"))
         {
+            EffectAudio.Instance.ListenEff(hit);
             other.GetComponent<BossManager>().IOnDamage(1f);
             PoolManager.Instance.Push(gameObject);
         }
