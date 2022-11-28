@@ -11,29 +11,35 @@ public class CLPlayer : CPlayManager
         if(transform.position.y >= 4.5f)
         {
             Hp -= 0.1f;
-            rb2D.AddForce(-transform.up * JumpPower);
+            rb2D.velocity = Vector2.zero;
+            rb2D.AddForce(Vector2.down * JumpPower * 8);
         }
         else if(transform.position.y <= -4.5f)
         {
             Hp -= 0.1f;
-            rb2D.AddForce(transform.up * JumpPower * 8);
+            rb2D.velocity = Vector2.zero;
+            rb2D.AddForce(Vector2.up * JumpPower * 8);
         }
         if(transform.position.x >= 8.5f)
         {
-            rb2D.velocity = new Vector2(0,rb2D.velocity.y);
+            Hp -= 0.1f;
+            rb2D.velocity = Vector2.zero;
+            rb2D.AddForce(Vector2.left * JumpPower * 8);
         }
         else if(transform.position.x <= -8.5f)
         {
-            rb2D.velocity = new Vector2(0,rb2D.velocity.y);
+            Hp -= 0.1f;
+            rb2D.velocity = Vector2.zero;
+            rb2D.AddForce(Vector2.right * JumpPower * 8);
         }
 
         if (Input.GetKey(KeyCode.A))
         {
-            transform.Translate(Vector3.left * Speed * Time.deltaTime);
+            transform.Translate(new Vector3(-1,0,0) * Speed * Time.deltaTime);
         }
         if (Input.GetKey(KeyCode.D))
         {
-            transform.Translate(Vector3.right * Speed * Time.deltaTime);
+            transform.Translate(new Vector3(1,0,0) * Speed * Time.deltaTime);
         }
         if (Input.GetKeyDown(KeyCode.W))
         {

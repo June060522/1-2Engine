@@ -15,6 +15,15 @@ EditorBuildSettings:
     path: Assets/01.Scenes/EndScene.unity
     guid: f61d2d9c30c11e449b9712b5b5222931
   - enabled: 1
-    path: Assets/01.Scenes/CollaborationScene.unity
+    path: Assets/01.Scenes/CollaborationEasyScene.unity
     guid: bc45a60eee2ed9143a9b58552f427319
+  - enabled: 1
+    path: Assets/01.Scenes/CollaborationNormalScene.unity
+    guid: 267c3083bb24a524796f0a45e92f75c9
+  - enabled: 1
+    path: Assets/01.Scenes/CollaborationHardScene.unity
+    guid: 04ddb79a04227ee40af9886af4b8d3e0
+  - enabled: 1
+    path: Assets/01.Scenes/CollaborationVillainyScene.unity
+    guid: 6afb1a84a88173e47827bcc882e0c0b0
   m_configObjects: {}

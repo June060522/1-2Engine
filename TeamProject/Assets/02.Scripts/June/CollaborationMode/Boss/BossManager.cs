@@ -14,7 +14,9 @@ public class BossManager : MonoBehaviour , IBoss
     [SerializeField] protected CRPlayer cRPlayer;
     [SerializeField] protected TurnObject turnObject;
 
+    protected GameObject target = null;
     protected float x;
+    protected float time = 0;
     protected SpriteRenderer spriteRenderer;
 
     protected int pattern = 0;

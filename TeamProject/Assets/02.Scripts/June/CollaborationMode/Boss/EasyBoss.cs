@@ -15,13 +15,13 @@ public class EasyBoss : BossManager
     {
         if (Hp <= 0)
         {
-            PlayerPrefs.SetString("WinnerName", "Clear!!");
+            PlayerPrefs.SetString("WinnerName", "Easy Stage Clear!!");
             SceneManager.LoadScene("EndScene");
         }
 
         if (cLPlayer.Hp <= 0 && cRPlayer.Hp <= 0)
         {
-            PlayerPrefs.SetString("WinnerName", "Fail.....");
+            PlayerPrefs.SetString("WinnerName", "Easy Stage Fail..");
             SceneManager.LoadScene("EndScene");
         }
 
@@ -50,12 +50,12 @@ public class EasyBoss : BossManager
                     transform.DOMove(new Vector2(x, y), 3f);
                     break;
                 case 1:
-                    float random = Random.Range(-360,360);
+                    float random = Random.Range(-30,30);
                     turnObject.Turning(random);
                     break;
             }
 
-            yield return new WaitForSeconds(8f);
+            yield return new WaitForSeconds(12f);
         }
     }
 }
