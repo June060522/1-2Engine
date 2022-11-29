@@ -46,7 +46,7 @@ public class PlayerManager : MonoBehaviour, ISummon
     public float maxFood;
     protected int maxSpawn = 5;
     public int nowSpawn = 0;
-    protected float plusBirdFood = 0.01f;
+    protected float plusBirdFood = 0.075f;
     public float PlusBirdFood {get => plusBirdFood; set => plusBirdFood = value;}
 
     protected int nowIndex = 2;

@@ -25,7 +25,7 @@ public class SpawnCol : MonoBehaviour
         for (int i = 0; i < 4; i++)
         {
             LplayerNowSpawnCool[i] += Time.deltaTime;
-            if (LplayerNowSpawnCool[i] > 5)
+            if (LplayerNowSpawnCool[i] > 3)
             {
                 text[i].text = "";
             }
@@ -37,7 +37,7 @@ public class SpawnCol : MonoBehaviour
         for (int i = 0; i < 4; i++)
         {
             RplayerNowSpawnCool[i] += Time.deltaTime;
-            if (RplayerNowSpawnCool[i] > 5)
+            if (RplayerNowSpawnCool[i] > 3)
             {
                 text[i + 4].text = "";
             }

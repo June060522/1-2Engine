@@ -7460,25 +7460,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LplayerSpawnCool:
-  - 5
-  - 5
-  - 5
-  - 5
+  - 3
+  - 3
+  - 3
+  - 3
   RplayerSpawnCool:
-  - 5
-  - 5
-  - 5
-  - 5
+  - 3
+  - 3
+  - 3
+  - 3
   LplayerNowSpawnCool:
-  - 5
-  - 5
-  - 5
-  - 5
+  - 3
+  - 3
+  - 3
+  - 3
   RplayerNowSpawnCool:
-  - 5
-  - 5
-  - 5
-  - 5
+  - 3
+  - 3
+  - 3
+  - 3
   text:
   - {fileID: 2133629775}
   - {fileID: 325550898}

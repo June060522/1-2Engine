@@ -160,7 +160,7 @@ public class VillainyBoss : BossManager
                     break;
             }
 
-            yield return new WaitForSeconds(5f);
+            yield return new WaitForSeconds(6f);
         }
     }
 }

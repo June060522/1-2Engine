@@ -24,7 +24,7 @@ public class toenailMove : MonoBehaviour
     {
         if(other.CompareTag("Bird"))
         {
-            other.GetComponent<CPlayManager>().Hp--;
+            other.GetComponent<CPlayManager>().Hp -= 5;
             transform.rotation = Quaternion.Euler(0,0,0);
             PoolManager.Instance.Push(gameObject);
         }

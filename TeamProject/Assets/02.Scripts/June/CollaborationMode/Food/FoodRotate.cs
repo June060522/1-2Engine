@@ -5,7 +5,7 @@ using UnityEngine;
 public class FoodRotate : MonoBehaviour
 {
     int i = 0;
-    void Start()
+    void OnEnable()
     {
         StartCoroutine(FoodMove());
     }

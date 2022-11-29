@@ -80,7 +80,7 @@ public class HardBoss : BossManager
                     , target.transform.position.x + 2 < 8.5 ? target.transform.position.x + 2 : 8.5f);
                     float y = Random.Range(target.transform.position.y - 1 > -4.5 ? target.transform.position.y - 1 : -4.5f
                     , target.transform.position.y - 1 > -4.5 ? target.transform.position.y - 1 : -4.5f);
-                    transform.DOMove(new Vector2(x, y), 2.3f);
+                    transform.DOMove(new Vector2(x, y), 1.5f);
                     for (int i = -1; i <= 1; i ++)
                     {
                         PoolManager.Instance.Pop(attack, transform.position, Quaternion.Euler(0, 0, transform.rotation.z + i * 60));
@@ -115,8 +115,9 @@ public class HardBoss : BossManager
                         time += Time.deltaTime;
                         Vector2 dir = target.transform.position - transform.position;
                         transform.Translate(dir.normalized * 4 * Time.deltaTime);
-                        yield return new WaitForSeconds(0.01f);
+                        yield return null;
                     }
+                    yield return null;
                     break;
                 case 3:
                     for (int i = 0; i <= 360; i += 60)
@@ -131,7 +132,7 @@ public class HardBoss : BossManager
 
             }
 
-            yield return new WaitForSeconds(4f);
+            yield return new WaitForSeconds(6f);
         }
     }
 }
